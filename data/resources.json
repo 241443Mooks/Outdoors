@@ -1,0 +1,633 @@
+{
+  "name": "smooks.",
+  "headline": "A few good places to start.",
+  "description": "Routes, conditions, kit, skills and food for being outside.",
+  "filters": [
+    "All",
+    "Routes",
+    "Conditions",
+    "Weather",
+    "Kit",
+    "Skills",
+    "Navigation",
+    "Camp",
+    "Food"
+  ],
+  "beforeYouGo": [
+    {
+      "label": "Mountain forecast",
+      "url": "https://www.mwis.org.uk/"
+    },
+    {
+      "label": "Water quality",
+      "url": "https://datahq.sas.org.uk/sewage-data-hq/is-it-safe-to-swim/"
+    },
+    {
+      "label": "Climbing access",
+      "url": "https://www.thebmc.co.uk/modules/rad/"
+    },
+    {
+      "label": "Dark-sky map",
+      "url": "https://gostargazing.co.uk/location-map/"
+    }
+  ],
+  "cards": [
+    {
+      "id": "plan-a-route",
+      "title": "Plan a route",
+      "description": "Maps and route finders across land and water.",
+      "tags": [
+        "Routes",
+        "Navigation"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "OS Maps",
+          "description": "detailed mapping & route planning",
+          "url": "https://osmaps.com/"
+        },
+        {
+          "label": "Ramblers Routes",
+          "description": "curated UK walks",
+          "url": "https://www.ramblers.org.uk/go-walking/routes"
+        },
+        {
+          "label": "cycle.travel",
+          "description": "quiet-road cycle planner",
+          "url": "https://cycle.travel/map"
+        },
+        {
+          "label": "PaddlePoints",
+          "description": "paddling routes & launch map",
+          "url": "https://gopaddling.info/paddlepoints/"
+        },
+        {
+          "label": "LDWA Paths",
+          "description": "long-distance walking routes",
+          "url": "https://ldwa.org.uk/ldp/public/ldp_public_home.php"
+        }
+      ]
+    },
+    {
+      "id": "rock-and-underground",
+      "title": "Rock and underground",
+      "description": "Climbs, caves, access and route knowledge.",
+      "tags": [
+        "Routes",
+        "Conditions",
+        "Skills"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "UKC Logbook",
+          "description": "crags, routes & ticklists",
+          "url": "https://www.ukclimbing.com/logbook/map/"
+        },
+        {
+          "label": "BMC RAD",
+          "description": "climbing access & restrictions",
+          "url": "https://www.thebmc.co.uk/modules/rad/"
+        },
+        {
+          "label": "CNCC Cave Information",
+          "description": "caves, permits & access",
+          "url": "https://cncc.org.uk/caving/"
+        },
+        {
+          "label": "CaveMaps",
+          "description": "downloadable cave surveys",
+          "url": "https://cavemaps.uk/"
+        },
+        {
+          "label": "Mountain Training",
+          "description": "skills, awards & training",
+          "url": "https://www.mountain-training.org/"
+        }
+      ]
+    },
+    {
+      "id": "lakes-and-dales",
+      "title": "Lakes and Dales",
+      "description": "Reliable local routes and car-free ideas.",
+      "tags": [
+        "Routes",
+        "Conditions"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "WalkLakes",
+          "description": "Lakeland walk finder",
+          "url": "https://www.walklakes.co.uk/walks.html"
+        },
+        {
+          "label": "Lake District Routes",
+          "description": "official walking routes",
+          "url": "https://lakedistrict.gov.uk/explore/things-to-do/walking/walking-routes/"
+        },
+        {
+          "label": "Yorkshire Dales Walking",
+          "description": "official Dales guidance",
+          "url": "https://www.yorkshiredales.org.uk/things-to-do/get-outdoors/walking/"
+        },
+        {
+          "label": "DalesBus Walks",
+          "description": "walks by public transport",
+          "url": "https://www.dalesbus.org/walks.html"
+        },
+        {
+          "label": "Walking Englishman",
+          "description": "free Dales maps & GPX",
+          "url": "https://www.walkingenglishman.com/dales.htm"
+        }
+      ]
+    },
+    {
+      "id": "water-routes",
+      "title": "Water routes",
+      "description": "Surf, swim, paddle and gorge ideas.",
+      "tags": [
+        "Routes",
+        "Conditions",
+        "Skills"
+      ],
+      "accent": "water",
+      "links": [
+        {
+          "label": "Surf-Forecast UK",
+          "description": "breaks, swell & wind",
+          "url": "https://www.surf-forecast.com/countries/United-Kingdom/breaks"
+        },
+        {
+          "label": "UK Rivers Guidebook",
+          "description": "river guides & levels",
+          "url": "https://www.ukriversguidebook.co.uk/"
+        },
+        {
+          "label": "Wild Swim Map",
+          "description": "UK swim spots & quality data",
+          "url": "https://wildswimmap.netlify.app/"
+        },
+        {
+          "label": "Paddle UK Places",
+          "description": "places to paddle",
+          "url": "https://paddleuk.org.uk/category/paddleuk-places-to-paddle/"
+        },
+        {
+          "label": "UK Canyoning Association",
+          "description": "gorge-walking standards & training",
+          "url": "https://ukcanyoning.org/about/"
+        }
+      ]
+    },
+    {
+      "id": "wild-places",
+      "title": "Wild places",
+      "description": "Waterfalls, rainforests and night skies.",
+      "tags": [
+        "Routes",
+        "Camp"
+      ],
+      "accent": "saffron",
+      "links": [
+        {
+          "label": "Waterfall Guide",
+          "description": "Yorkshire Dales falls & grid references",
+          "url": "https://www.walkingenglishman.com/daleswaterfalls.html"
+        },
+        {
+          "label": "Ingleton Waterfalls Trail",
+          "description": "classic circular waterfall walk",
+          "url": "https://www.ingletonwaterfallstrail.co.uk/"
+        },
+        {
+          "label": "Woodland Trust Rainforests",
+          "description": "habitat guide & map",
+          "url": "https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/habitats/temperate-rainforest/"
+        },
+        {
+          "label": "Lost Rainforests Map",
+          "description": "surviving rainforest fragments",
+          "url": "https://lostrainforestsofbritain.org/2021/03/16/mapping-the-lost-rainforests-of-britain/"
+        },
+        {
+          "label": "Dark Sky Discovery",
+          "description": "recognised stargazing sites",
+          "url": "https://www.darkskydiscovery.org.uk/dark-sky-discovery-sites/"
+        }
+      ]
+    },
+    {
+      "id": "mountain-weather",
+      "title": "Mountain weather",
+      "description": "Forecasts for exposed and elevated ground.",
+      "tags": [
+        "Weather",
+        "Conditions"
+      ],
+      "accent": "water",
+      "links": [
+        {
+          "label": "MWIS Lake District",
+          "description": "mountain-area forecast",
+          "url": "https://www.mwis.org.uk/forecasts/english-and-welsh/lake-district"
+        },
+        {
+          "label": "MWIS Yorkshire Dales",
+          "description": "Dales & North Pennines forecast",
+          "url": "https://www.mwis.org.uk/forecasts/english-and-welsh/yorkshire-dales-and-north-pennines"
+        },
+        {
+          "label": "Weatherline",
+          "description": "Lake District fell-top conditions",
+          "url": "https://www.lakedistrictweatherline.co.uk/"
+        },
+        {
+          "label": "Met Office Mountain Weather",
+          "description": "UK mountain forecasts",
+          "url": "https://www.metoffice.gov.uk/weather/specialist-forecasts/mountain"
+        },
+        {
+          "label": "Windy",
+          "description": "wind, rain and cloud maps",
+          "url": "https://www.windy.com/"
+        }
+      ]
+    },
+    {
+      "id": "water-conditions",
+      "title": "Water conditions",
+      "description": "Swell, pollution, rivers and safer decisions.",
+      "tags": [
+        "Conditions",
+        "Weather"
+      ],
+      "accent": "water",
+      "links": [
+        {
+          "label": "Surfline UK",
+          "description": "surf reports, cams & forecasts",
+          "url": "https://www.surfline.com/surf-reports-forecasts-cams/united-kingdom/2635167"
+        },
+        {
+          "label": "Windy Waves",
+          "description": "wind & wave map",
+          "url": "https://www.windy.com/-Waves-waves"
+        },
+        {
+          "label": "Rivers Trust",
+          "description": "wild swimming & sewage map",
+          "url": "https://theriverstrust.org/enjoy-rivers/wild-swimming"
+        },
+        {
+          "label": "Safer Seas & Rivers",
+          "description": "pollution alerts",
+          "url": "https://datahq.sas.org.uk/sewage-data-hq/is-it-safe-to-swim/"
+        },
+        {
+          "label": "GOV.UK Bathing Water",
+          "description": "official English water quality",
+          "url": "https://www.gov.uk/quality-of-local-bathing-water"
+        }
+      ]
+    },
+    {
+      "id": "access-and-local-reports",
+      "title": "Access and local reports",
+      "description": "Restrictions, permits and place-specific knowledge.",
+      "tags": [
+        "Conditions",
+        "Routes"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "BMC RAD",
+          "description": "crag access restrictions",
+          "url": "https://www.thebmc.co.uk/modules/rad/"
+        },
+        {
+          "label": "CNCC Cave Information",
+          "description": "cave access & permits",
+          "url": "https://cncc.org.uk/caving/"
+        },
+        {
+          "label": "Keswick MRT Hotspots",
+          "description": "local hazards & safety",
+          "url": "https://keswickmrt.org.uk/safety-hotspots/"
+        },
+        {
+          "label": "MBA Bothies",
+          "description": "access notes & closures",
+          "url": "https://www.mountainbothies.org.uk/bothies/"
+        },
+        {
+          "label": "National Cycle Network",
+          "description": "signed routes & updates",
+          "url": "https://www.sustrans.org.uk/find-a-route-on-the-national-cycle-network/"
+        }
+      ]
+    },
+    {
+      "id": "kit-and-checklists",
+      "title": "Kit and checklists",
+      "description": "Practical gear advice without an endless shopping list.",
+      "tags": [
+        "Kit",
+        "Skills"
+      ],
+      "accent": "heather",
+      "links": [
+        {
+          "label": "BMC Walking Kit List",
+          "description": "what to carry in the hills",
+          "url": "https://www.thebmc.co.uk/en/ultimate-walking-kit-list-essential-gear-for-every-hiker-walker"
+        },
+        {
+          "label": "BikeRadar Guides",
+          "description": "bikes, components & kit",
+          "url": "https://www.bikeradar.com/advice/buyers-guides"
+        },
+        {
+          "label": "SUPboarder",
+          "description": "paddleboard equipment reviews",
+          "url": "https://www.supboardermag.com/"
+        },
+        {
+          "label": "Slick Willies Guide",
+          "description": "choosing roller skates",
+          "url": "https://www.slickwillies.co.uk/pages/buyers-guide"
+        },
+        {
+          "label": "Starless River",
+          "description": "specialist caving equipment",
+          "url": "https://starlessriver.com/shop/"
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "title": "Navigation",
+      "description": "Map skills and tools for staying found.",
+      "tags": [
+        "Navigation",
+        "Skills"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "OS Maps",
+          "description": "planning, paper maps & app",
+          "url": "https://osmaps.com/"
+        },
+        {
+          "label": "Mountain Training",
+          "description": "navigation courses & skills",
+          "url": "https://www.mountain-training.org/"
+        },
+        {
+          "label": "Mountaineering Scotland",
+          "description": "map-and-compass navigation skills",
+          "url": "https://www.mountaineering.scot/safety-and-skills/essential-skills/navigation"
+        },
+        {
+          "label": "cycle.travel",
+          "description": "cycle routing with elevation",
+          "url": "https://cycle.travel/map"
+        },
+        {
+          "label": "CaveMaps",
+          "description": "offline cave surveys",
+          "url": "https://cavemaps.uk/"
+        }
+      ]
+    },
+    {
+      "id": "skills-and-safety",
+      "title": "Skills and safety",
+      "description": "Training, rescue awareness and safer technique.",
+      "tags": [
+        "Skills",
+        "Conditions"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "Mountain Training",
+          "description": "outdoor skills & courses",
+          "url": "https://www.mountain-training.org/"
+        },
+        {
+          "label": "RNLI Surf Safety",
+          "description": "surf risk checks",
+          "url": "https://rnli.org/water-safety/choose-your-activity/surfing"
+        },
+        {
+          "label": "RNLI SUP Safety",
+          "description": "leashes, wind & buoyancy",
+          "url": "https://rnli.org/water-safety/choose-your-activity/stand-up-paddle-boarding"
+        },
+        {
+          "label": "Outdoor Swimming Society",
+          "description": "groups & practical guidance",
+          "url": "https://www.outdoorswimmingsociety.com/uk-wild-swimming-groups/"
+        },
+        {
+          "label": "UK Canyoning Association",
+          "description": "training & guide standards",
+          "url": "https://ukcanyoning.org/about/"
+        }
+      ]
+    },
+    {
+      "id": "movement-and-recovery",
+      "title": "Movement and recovery",
+      "description": "Balance, mobility and practice between adventures.",
+      "tags": [
+        "Skills"
+      ],
+      "accent": "forest",
+      "links": [
+        {
+          "label": "Yoga with Adriene",
+          "description": "free yoga library",
+          "url": "https://yogawithadriene.com/free-yoga-videos/"
+        },
+        {
+          "label": "NHS Yoga Videos",
+          "description": "accessible guided sessions",
+          "url": "https://www.nhs.uk/live-well/exercise/pilates-and-yoga/"
+        },
+        {
+          "label": "Tai Chi Union",
+          "description": "find a UK instructor",
+          "url": "https://www.taichiunion.com/"
+        },
+        {
+          "label": "Tai Chi for Health",
+          "description": "free beginner lessons",
+          "url": "https://taichiforhealthinstitute.org/free-tai-chi-lessons-from-dr-paul-lam/"
+        },
+        {
+          "label": "Skatefresh",
+          "description": "step-by-step skate tuition",
+          "url": "https://skatefresh.com/"
+        }
+      ]
+    },
+    {
+      "id": "bothies-and-wild-nights",
+      "title": "Bothies and wild nights",
+      "description": "Shelters, legal access and low-impact nights out.",
+      "tags": [
+        "Camp",
+        "Routes",
+        "Kit"
+      ],
+      "accent": "saffron",
+      "links": [
+        {
+          "label": "MBA Location Map",
+          "description": "official UK bothy finder",
+          "url": "https://www.mountainbothies.org.uk/bothies/location-map/"
+        },
+        {
+          "label": "The Bothy Code",
+          "description": "responsible shelter use",
+          "url": "https://www.mountainbothies.org.uk/bothies/bothy-code/"
+        },
+        {
+          "label": "Scottish Access Code",
+          "description": "official wild-camping rules",
+          "url": "https://www.outdooraccess-scotland.scot/practical-guide-all/camping"
+        },
+        {
+          "label": "Dartmoor Camping Map",
+          "description": "permitted backpack-camping areas",
+          "url": "https://www.dartmoor.gov.uk/about-us/about-us-maps/camping-map"
+        },
+        {
+          "label": "BMC Wild Camping",
+          "description": "law, planning & practice",
+          "url": "https://thebmc.co.uk/en/how-to-wild-camp"
+        }
+      ]
+    },
+    {
+      "id": "camp-kitchen",
+      "title": "Camp kitchen",
+      "description": "Lightweight food with an Eastern Mediterranean tilt.",
+      "tags": [
+        "Food",
+        "Camp",
+        "Kit"
+      ],
+      "accent": "clay",
+      "links": [
+        {
+          "label": "Eat Sleep Wild",
+          "description": "wild-camping meal ideas",
+          "url": "https://eatsleepwild.com/wild-camping-food-what-to-eat-on-a-wild-camping-trip/"
+        },
+        {
+          "label": "Original Outdoors",
+          "description": "packable food planning",
+          "url": "https://originaloutdoors.co.uk/wild-camping-food-what-should-i-take/"
+        },
+        {
+          "label": "Mediterranean Dish",
+          "description": "simple Mediterranean recipes",
+          "url": "https://www.themediterraneandish.com/recipes/"
+        },
+        {
+          "label": "Ozlem's Turkish Table",
+          "description": "Turkish dishes & mezze",
+          "url": "https://ozlemsturkishtable.com/recipes/"
+        },
+        {
+          "label": "My Greek Dish",
+          "description": "Greek recipes adaptable to camp",
+          "url": "https://www.mygreekdish.com/"
+        }
+      ]
+    },
+    {
+      "id": "wild-food",
+      "title": "Wild food",
+      "description": "Safer identification, seasonal plants and foraged flavour.",
+      "tags": [
+        "Food",
+        "Skills"
+      ],
+      "accent": "clay",
+      "caution": "Never eat a wild plant, berry or fungus unless its identity is certain. Never rely on one website or an identification app; fungi are especially easy to confuse.",
+      "links": [
+        {
+          "label": "Food Standards Agency",
+          "description": "official safe-foraging guidance",
+          "url": "https://www.food.gov.uk/safety-hygiene/guidance-for-safe-foraging"
+        },
+        {
+          "label": "Woodland Trust Guidelines",
+          "description": "safety, law & sustainability",
+          "url": "https://www.woodlandtrust.org.uk/visiting-woods/things-to-do/foraging/foraging-guidelines/"
+        },
+        {
+          "label": "Seasonal Foraging Guide",
+          "description": "what to find month by month",
+          "url": "https://www.woodlandtrust.org.uk/visiting-woods/things-to-do/foraging/"
+        },
+        {
+          "label": "Wild Food UK Plants",
+          "description": "edible and poisonous plant guide",
+          "url": "https://www.wildfooduk.com/wild-plant-guide/"
+        },
+        {
+          "label": "Wild Food UK Mushrooms",
+          "description": "fungus identification guide",
+          "url": "https://www.wildfooduk.com/mushroom-guide/"
+        }
+      ]
+    },
+    {
+      "id": "leave-no-trace",
+      "title": "Leave no trace",
+      "description": "Access, conservation and caring for wild places.",
+      "tags": [
+        "Camp",
+        "Skills"
+      ],
+      "accent": "saffron",
+      "links": [
+        {
+          "label": "Countryside Code",
+          "description": "respect, protect and enjoy",
+          "url": "https://www.gov.uk/government/publications/the-countryside-code"
+        },
+        {
+          "label": "Scottish Outdoor Access Code",
+          "description": "responsible access guidance",
+          "url": "https://www.outdooraccess-scotland.scot/"
+        },
+        {
+          "label": "Bothy Code",
+          "description": "care for shelters & surroundings",
+          "url": "https://www.mountainbothies.org.uk/bothies/bothy-code/"
+        },
+        {
+          "label": "Woodland Trust Foraging",
+          "description": "sustainable collecting",
+          "url": "https://www.woodlandtrust.org.uk/visiting-woods/things-to-do/foraging/foraging-guidelines/"
+        },
+        {
+          "label": "Rainforest Restoration",
+          "description": "protecting temperate rainforest",
+          "url": "https://www.wildlifetrusts.org/temperate-rainforest-restoration"
+        }
+      ]
+    }
+  ],
+  "footer": "Useful corners of the internet. No tracking. No cookies."
+}

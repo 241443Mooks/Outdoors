@@ -1,0 +1,14 @@
+{
+  "name": "smooks-outdoors",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Source reconstruction of smooks.co.uk outdoor resource directory",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

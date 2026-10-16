@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Routes, conditions, kit, skills and food for being outside.">
+  <link rel="canonical" href="https://smooks.co.uk/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="smooks — useful places">
+  <meta property="og:description" content="Routes, conditions, kit, skills and food for being outside.">
+  <meta property="og:url" content="https://smooks.co.uk/">
+  <meta property="og:image" content="https://smooks.co.uk/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>smooks — useful places</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/script.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to resources</a>
+  <header class="hero">
+    <div class="wrap hero__inner">
+      <p class="wordmark">smooks<span aria-hidden="true">.</span></p>
+      <div class="hero__copy">
+        <p class="eyebrow">A small field guide to useful things</p>
+        <h1>{{HEADLINE}}</h1>
+        <p class="lede">{{DESCRIPTION}}</p>
+      </div>
+    </div>
+  </header>
+  <main class="wrap main-area" id="main-content" tabindex="-1">
+    <nav class="filter-row" aria-label="Resource filters">
+      <ul class="filter-row__list">{{FILTERS}}</ul>
+    </nav>
+    <section class="before-strip" aria-labelledby="before-heading">
+      <div class="before-strip__heading">
+        <p class="eyebrow">Worth checking</p>
+        <h2 id="before-heading">Before you go</h2>
+      </div>
+      <ul class="before-strip__list">{{BEFORE}}</ul>
+    </section>
+    <section class="resource-section" aria-labelledby="resource-heading">
+      <div class="section-header">
+        <h2 id="resource-heading">The directory</h2>
+        <p class="result-status" id="filter-status" aria-live="polite">Showing all {{COUNT}} resource cards.</p>
+      </div>
+      <div class="resource-grid">{{CARDS}}</div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><p>{{FOOTER}}</p></div></footer>
+</body>
+</html>
