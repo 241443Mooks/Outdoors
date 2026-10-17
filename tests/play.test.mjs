@@ -34,7 +34,7 @@ test('game slugs are distinct and all recommendations include experiential copy'
     if (game.amazonUrl) assert.equal(new URL(game.amazonUrl).protocol, 'https:');
   }
 });
-test('affiliate disclosures are adjacent to links in game template rendering', () => {
+test('affiliate disclosures are adjacent to links in game template rendering', async () => {
   const builder = await readFile(new URL('../scripts/build.mjs', import.meta.url), 'utf8');
   assert.match(builder, /As an Amazon Associate I earn from qualifying purchases/);
   assert.match(builder, /rel="sponsored noopener noreferrer"/);
