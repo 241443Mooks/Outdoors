@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e9">
+  <meta name="description" content="{{SUMMARY}}">
+  <link rel="canonical" href="https://smooks.co.uk/play/{{SLUG}}/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{NAME}} — Play — smooks.">
+  <meta property="og:description" content="{{SUMMARY}}">
+  <meta property="og:url" content="https://smooks.co.uk/play/{{SLUG}}/">
+  <meta property="og:image" content="https://smooks.co.uk/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>{{NAME}} — Play — smooks.</title>
+  <link rel="stylesheet" href="{{CSS}}">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to game</a>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="/" aria-label="smooks, homepage">smooks<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-nav__link" href="/">Home</a>
+        <a class="site-nav__link" href="/outside/">Outside</a>
+        <a class="site-nav__link" href="/play/" aria-current="page">Play</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <div class="wrap game-breadcrumb"><a href="/play/">← Back to Play</a></div>
+    <article class="wrap game-detail" aria-labelledby="game-title">
+      <div class="game-detail__main">
+        <p class="eyebrow">From the games shelf</p>
+        <h1 id="game-title">{{NAME}}</h1>
+        <p class="game-detail__strapline">{{STRAPLINE}}</p>
+        <div class="game-tags" aria-label="Game characteristics">{{TAGS}}</div>
+        <div class="game-illustration game-illustration--{{ART}}" aria-hidden="true">
+          <span class="game-illustration__mark">⚄</span>
+          <span class="game-illustration__mark game-illustration__mark--tilt">⚂</span>
+          <span class="game-illustration__mark">⚅</span>
+        </div>
+        <div class="game-notes">
+          <section aria-labelledby="game-theme"><h2 id="game-theme">The theme</h2><p>{{THEME}}</p></section>
+          <section aria-labelledby="game-fun"><h2 id="game-fun">What's fun?</h2><p>{{FUN}}</p></section>
+          <section aria-labelledby="game-audience"><h2 id="game-audience">Who might like it?</h2><p>{{AUDIENCE}}</p></section>
+        </div>
+      </div>
+      <aside class="game-detail__aside" aria-label="Game links">
+        <p class="eyebrow">Worth a look</p>
+        <p>{{SUMMARY}}</p>
+        {{BUYLINK}}
+        <p class="game-detail__aside-note">No score out of ten. Just what makes a game enjoyable.</p>
+      </aside>
+    </article>
+    <div class="wrap game-detail__bottom"><a class="text-link" href="/play/">← More games</a></div>
+  </main>
+  <footer class="site-footer"><div class="wrap site-footer__inner">
+    <a class="footer-wordmark" href="/">smooks.</a>
+    <p>A few things worth sharing.</p>
+  </div></footer>
+</body>
+</html>

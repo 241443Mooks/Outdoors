@@ -20,5 +20,7 @@ jobs:
         run: |
           test -s dist/index.html
           test -s dist/outside/index.html
+          test -s dist/play/index.html
+          test -s dist/play/heckmeck/index.html
           test -s dist/favicon.svg
           test -s dist/og-image.svg

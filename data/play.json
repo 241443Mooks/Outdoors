@@ -1,0 +1,21 @@
+{
+  "intro": "Board games worth a look. What they're about, what makes them fun, and who might enjoy them.",
+  "games": [
+    {
+      "slug": "heckmeck",
+      "name": "Heckmeck",
+      "strapline": "Worms, dice and constantly changing fortunes.",
+      "summary": "A mischievous dice game where players steal worms and the lead can change at any moment.",
+      "theme": "Chickens competing for roasted worms.",
+      "fun": "The best bit is the interaction between players. You can steal worms from each other, take chances and turn the game around in a single move. Nobody's position feels secure for long.",
+      "audience": "People who enjoy lively, competitive games, friendly mischief and the kind of game where fortunes keep changing.",
+      "tags": [
+        "Dice",
+        "Push your luck",
+        "Player interaction"
+      ],
+      "art": "dice",
+      "amazonUrl": "https://link.amazon/B0fw3e1Ua"
+    }
+  ]
+}
