@@ -53,10 +53,14 @@
       card.hidden = !visible;
       if (visible) count++;
     });
-    const labels = { board: 'board games', dice: 'dice games', card: 'card games' };
+    const labels = {
+      board: ['board game', 'board games'],
+      dice: ['dice game', 'dice games'],
+      card: ['card game', 'card games']
+    };
     status.textContent = selected === 'all'
-      ? 'Showing all ' + count + ' games.'
-      : 'Showing ' + count + ' ' + labels[selected] + '.';
+      ? 'Showing all ' + count + (count === 1 ? ' game.' : ' games.')
+      : 'Showing ' + count + ' ' + labels[selected][count === 1 ? 0 : 1] + '.';
     if (updateUrl) {
       const url = new URL(window.location.href);
       if (selected === 'all') url.searchParams.delete('type');

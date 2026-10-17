@@ -142,7 +142,7 @@ test('Play filters work by type, support direct links and leave Outside untouche
   assert.equal(status.textContent, 'Showing 3 card games.');
   buttons[2].listeners.click();
   assert.deepEqual(cards.map(c => c.hidden), [false,true,true,true,true]);
-  assert.equal(status.textContent, 'Showing 1 dice games.');
+  assert.equal(status.textContent, 'Showing 1 dice game.');
   assert.equal(current.searchParams.get('type'), 'dice');
   buttons[0].listeners.click();
   assert.ok(cards.every(c => !c.hidden));
