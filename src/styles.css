@@ -277,3 +277,21 @@ h1,h2,h3 { text-wrap:balance; }
   .play-card__art--photo img { height:190px; }
   .game-photo__image img { max-height:280px; }
 }
+
+
+/* Simple, accessible primary game-type filters. The full list remains visible without JS. */
+.play-filters { display:flex; flex-wrap:wrap; gap:.6rem; margin:0 0 1.7rem; }
+.play-filter__button {
+  font:650 .84rem system-ui,-apple-system,sans-serif; min-height:44px;
+  border:1px solid #bbc9bf; border-radius:999px; padding:.65rem 1.1rem;
+  color:var(--ink); background:transparent; cursor:pointer;
+  transition:background-color .15s,color .15s;
+}
+.play-filter__button:hover { background:#e4e9de; }
+.play-filter__button[aria-pressed="true"] { color:#fff; background:var(--forest); border-color:var(--forest); }
+.play-card[hidden] { display:none!important; }
+.play-directory__count { color:var(--muted); font-size:.85rem; }
+@media(max-width:650px) {
+  .play-filters { flex-wrap:nowrap; overflow-x:auto; margin-right:-1rem; padding:0 1rem .6rem 0; scrollbar-width:thin; }
+  .play-filter__button { white-space:nowrap; flex:none; }
+}

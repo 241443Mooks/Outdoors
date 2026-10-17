@@ -3,7 +3,7 @@
 A quiet personal website with collections of useful things.
 
 - **Outside** — routes, conditions, navigation, skills and places to explore.
-- **Play** — board games worth recommending, focused on the theme, what is fun and who might enjoy them.
+- **Play** — board, dice and card games worth recommending, focused on the theme, what is fun and who might enjoy them.
 
 ## Status and deployment
 
@@ -34,6 +34,7 @@ and the first game at \`/play/heckmeck/\`.
 Add one entry to \`data/play.json\`. Each recommendation includes:
 - \`slug\`: unique lower-case URL segment, e.g. \`heckmeck\`
 - \`name\`, \`strapline\`, and \`summary\`
+- \`type\`: one primary category, \`board\`, \`dice\`, or \`card\`; this powers Play filters and the game type label
 - \`theme\`: what it is about
 - \`fun\`: the experience and interactions that make it enjoyable
 - \`audience\`: who might like it
@@ -47,6 +48,8 @@ game's purchase link on another game's page. The page includes a clear affiliate
 label and the Amazon Associate disclosure next to a relevant purchase link.
 Games without a purchase link remain perfectly valid.
 
+Play offers \`All games\`, \`Board games\`, \`Dice games\`, and \`Card games\` filters. Selecting one updates the visible cards, announced result count, and optional \`?type=\` URL (e.g. \`/play/?type=dice\`). No separate category pages or extra navigation are required. Without JavaScript, all games remain visible.
+
 Game illustrations are original typographic motifs, not copied product art.
 We can add licensed game photos later, without requiring them to add a recommendation.
 
@@ -55,7 +58,7 @@ We can add licensed game photos later, without requiring them to add a recommend
 - \`data/resources.json\` — Outside content and external links.
 - \`src/*.template.html\` — the homepage, Outside and Play templates.
 - \`src/styles.css\` — global layout and the Play visual treatment.
-- \`src/script.js\` — category filter interaction (Outside only).
+- \`src/script.js\` — independent resource filters (Outside) and game type filters (Play).
 - \`scripts/build.mjs\` — static generator.
 - \`scripts/verify.mjs\` and \`tests/\` — automated checks.
 

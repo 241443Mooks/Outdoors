@@ -1,5 +1,5 @@
 {
-  "intro": "Board games worth a look. What they're about, what makes them fun, and who might enjoy them.",
+  "intro": "Tabletop games worth a look. What they're about, what makes them fun, and who might enjoy them.",
   "games": [
     {
       "slug": "heckmeck",
@@ -15,7 +15,8 @@
         "Player interaction"
       ],
       "art": "dice",
-      "amazonUrl": "https://link.amazon/B0fw3e1Ua"
+      "amazonUrl": "https://link.amazon/B0fw3e1Ua",
+      "type": "dice"
     },
     {
       "slug": "cascadia",
@@ -33,7 +34,8 @@
         "Changing goals"
       ],
       "art": "tiles",
-      "amazonUrl": "https://link.amazon/B06tRUIJR"
+      "amazonUrl": "https://link.amazon/B06tRUIJR",
+      "type": "board"
     },
     {
       "slug": "6-nimmt",
@@ -60,7 +62,8 @@
         "license": "CC BY-SA 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
         "changes": "Unmodified photograph; fitted without cropping"
-      }
+      },
+      "type": "card"
     },
     {
       "slug": "tenby",
@@ -78,7 +81,8 @@
         "Easy to learn"
       ],
       "art": "cards",
-      "amazonUrl": "https://link.amazon/B0isct9tj"
+      "amazonUrl": "https://link.amazon/B0isct9tj",
+      "type": "card"
     },
     {
       "slug": "the-mind",
@@ -96,7 +100,8 @@
         "Shared timing"
       ],
       "art": "cards",
-      "amazonUrl": "https://link.amazon/B08fIOBLp"
+      "amazonUrl": "https://link.amazon/B08fIOBLp",
+      "type": "card"
     }
   ]
 }

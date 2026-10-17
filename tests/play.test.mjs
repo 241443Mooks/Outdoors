@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import vm from 'node:vm';
 
 const data = JSON.parse(await readFile(new URL('../data/play.json', import.meta.url), 'utf8'));
 const home = await readFile(new URL('../src/index.template.html', import.meta.url), 'utf8');
@@ -10,6 +11,9 @@ const gamePage = await readFile(new URL('../src/game.template.html', import.meta
 test('Play is available from the site and is not an empty section', () => {
   assert.match(home, /href="\/play\/"/);
   assert.match(playPage, /{{GAMES}}/);
+  assert.match(playPage, /{{PLAYFILTERS}}/);
+  assert.match(playPage, /src="{{SCRIPT}}"/);
+  assert.match(gamePage, /{{TYPE}}/);
   assert.match(gamePage, /{{FUN}}/);
   assert.match(gamePage, /{{AUDIENCE}}/);
   assert.ok(data.games.length >= 1);
@@ -94,6 +98,58 @@ test('licensed photo metadata is complete, attributed and restricted to reviewed
   }
 });
 
+test('Play classification is explicit, singular, and covers the expected physical formats', () => {
+  assert.deepEqual(Object.fromEntries(data.games.map(({slug,type}) => [slug,type])), {
+    heckmeck: 'dice',
+    cascadia: 'board',
+    '6-nimmt': 'card',
+    tenby: 'card',
+    'the-mind': 'card'
+  });
+  assert.deepEqual(new Set(data.games.map(game => game.type)), new Set(['board', 'dice', 'card']));
+});
+
+test('Play filters work by type, support direct links and leave Outside untouched', async () => {
+  const script = await readFile(new URL('../src/script.js', import.meta.url), 'utf8');
+  const buttons = ['all', 'board', 'dice', 'card'].map(type => ({
+    dataset: {playFilter:type},
+    attributes: {},
+    listeners: {},
+    setAttribute(key, val) { this.attributes[key] = val; },
+    addEventListener(name, fn) { this.listeners[name] = fn; }
+  }));
+  const cards = data.games.map(game => ({dataset: {gameType: game.type}, hidden: false}));
+  const status = {textContent: ''};
+  let current = new URL('https://smooks.co.uk/play/?type=card');
+  const sandbox = {
+    document: {
+      querySelectorAll(selector) {
+        if (selector === '[data-play-filter]') return buttons;
+        if (selector === '[data-play-card]') return cards;
+        return [];
+      },
+      getElementById(id) { return id === 'play-filter-status' ? status : null; }
+    },
+    URL, URLSearchParams,
+    window: {
+      get location() {return current;},
+      history: {replaceState(_state,_title,url) {current = new URL(String(url));}}
+    }
+  };
+  vm.runInNewContext(script, sandbox);
+  assert.deepEqual(cards.map(c => c.hidden), [true,true,false,false,false]);
+  assert.equal(buttons[3].attributes['aria-pressed'], 'true');
+  assert.equal(status.textContent, 'Showing 3 card games.');
+  buttons[2].listeners.click();
+  assert.deepEqual(cards.map(c => c.hidden), [false,true,true,true,true]);
+  assert.equal(status.textContent, 'Showing 1 dice games.');
+  assert.equal(current.searchParams.get('type'), 'dice');
+  buttons[0].listeners.click();
+  assert.ok(cards.every(c => !c.hidden));
+  assert.equal(current.searchParams.has('type'), false);
+  assert.equal(status.textContent, 'Showing all 5 games.');
+});
+
 test('game slugs are distinct and all recommendations include experiential copy', () => {
   assert.equal(new Set(data.games.map(g => g.slug)).size, data.games.length);
   for (const game of data.games) {
@@ -102,6 +158,7 @@ test('game slugs are distinct and all recommendations include experiential copy'
       assert.ok(game[key]?.trim(), game.slug + ' missing ' + key);
     }
     assert.ok(game.tags.length);
+    assert.ok(['board','dice','card'].includes(game.type));
     assert.ok(['dice', 'cards', 'tiles', 'abstract'].includes(game.art));
     if (game.amazonUrl) assert.equal(new URL(game.amazonUrl).protocol, 'https:');
   }

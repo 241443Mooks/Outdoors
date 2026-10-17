@@ -45,6 +45,11 @@ const linkCount = data.cards.reduce((sum, card) => sum + card.links.length, 0);
 
 // Game recommendations are kept as data so that adding a game does not require
 // editing page HTML. Titles and notes are escaped before being inserted.
+const gameTypes = {
+  board: { singular: 'Board game', plural: 'Board games' },
+  dice: { singular: 'Dice game', plural: 'Dice games' },
+  card: { singular: 'Card game', plural: 'Card games' }
+};
 const artworkByType = {
   dice: ['⚄', '⚂', '⚅'],
   cards: ['♠', '♥', '♣'],
@@ -62,6 +67,7 @@ for (const game of play.games) {
       throw new Error('Missing game ' + key + ' for ' + game.slug);
     }
   }
+  if (!Object.hasOwn(gameTypes, game.type)) throw new Error('Invalid game type for ' + game.slug);
   if (!Array.isArray(game.tags) || !game.tags.length) throw new Error('Missing tags for ' + game.slug);
   if (!Object.hasOwn(artworkByType, game.art)) throw new Error('Unknown game art treatment for ' + game.slug);
   if (game.image) {
@@ -106,10 +112,17 @@ const gameDetailArt = game => game.image
   : '<div class="game-illustration game-illustration--' + escapeHtml(game.art) +
     '" aria-hidden="true">' + gameArt(game) + '</div>';
 
+const playFilters = [
+  { value: 'all', label: 'All games' },
+  ...Object.entries(gameTypes).map(([value, labels]) => ({ value, label: labels.plural }))
+].map(({ value, label }, index) =>
+  '<button type="button" class="play-filter__button" data-play-filter="' + escapeHtml(value) +
+  '" aria-pressed="' + (index === 0 ? 'true' : 'false') + '">' + escapeHtml(label) + '</button>'
+).join('\n');
 const gameCards = play.games.map(game =>
-  '<article class="play-card"><a class="play-card__link" href="/play/' + escapeHtml(game.slug) + '/">' +
+  '<article class="play-card" data-play-card data-game-type="' + escapeHtml(game.type) + '"><a class="play-card__link" href="/play/' + escapeHtml(game.slug) + '/">' +
   gameCardArt(game) +
-  '<div class="play-card__body"><span class="play-card__label">Board game</span>' +
+  '<div class="play-card__body"><span class="play-card__label">' + escapeHtml(gameTypes[game.type].singular) + '</span>' +
   '<strong class="play-card__heading">' + escapeHtml(game.name) + '</strong>' +
   '<p>' + escapeHtml(game.summary) + '</p>' +
   '<span class="play-card__more">A closer look ↗</span></div></a>' +
@@ -141,7 +154,8 @@ const placeholders = {
   CARDS: cards,
   FOOTER: escapeHtml(data.footer),
   GAMECOUNT: String(play.games.length) + (play.games.length === 1 ? ' game' : ' games'),
-  GAMES: gameCards
+  GAMES: gameCards,
+  PLAYFILTERS: playFilters
 };
 
 const render = async (name, pageValues = {}) => {
@@ -163,6 +177,7 @@ for (const game of play.games) {
   await mkdir(folder, { recursive: true });
   await writeFile(path.join(folder, 'index.html'), await render('game', {
     NAME: escapeHtml(game.name),
+    TYPE: escapeHtml(gameTypes[game.type].singular),
     SLUG: escapeHtml(game.slug),
     STRAPLINE: escapeHtml(game.strapline),
     SUMMARY: escapeHtml(game.summary),
