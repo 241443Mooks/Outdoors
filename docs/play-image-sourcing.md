@@ -14,6 +14,7 @@ grant permission to copy it or host it on smooks.co.uk.
 | 6 nimmt! | **Actual gameplay photo selected** | [Muu-karhu, '6 nimmt!' on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:6_nimmt!.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Source is uploader's own work and explicitly licensed for adaptation and commercial reuse with attribution/share-alike. Use original unchanged, fitted without cropping. Actual photo is an older amateur shot, not a professional publisher photograph; can replace if a better cleared press photo appears. |
 | Tenby | Illustration retained | [BoardGameGeek Tenby gameplay photo](https://boardgamegeek.com/image/8100671/tenby) | The attractive photo is labelled © All rights reserved and **must not** be copied without permission. Seek publisher press image or owner's photo. |
 | The Mind | Illustration retained | [Wikimedia Commons logo](https://commons.wikimedia.org/wiki/File:Themind.png) | Only a logo with unspecified author was identified, not a licensed gameplay photo; not suitable. Seek official permission or owner's photo. |
+| Bärenpark (Bear Park) | Illustration retained | [Lookout Games product page](https://www.lookout-spiele.de/en/games/baerenpark.html) | Publisher shows product and component imagery, but no confirmed permission for reusing the photographs on an affiliate-supported site. Seek licensed tabletop photo. |
 
 ## How to add a photograph
 
@@ -31,6 +32,7 @@ grant permission to copy it or host it on smooks.co.uk.
 - **Zoch Verlag:** original Heckmeck manufacturer; official images need specific permission or press licence.
 - **Tenby:** user-submitted BoardGameGeek gameplay photos are generally not licensed for reuse; request publisher's press kit instead.
 - **The Mind:** avoid assumptions about rights to retailer and player photographs.
+- **Bärenpark:** request a properly licensed gameplay photograph from Lookout Games, showing the irregular tiles laid out across the park boards. Do not mistake the separate *Bad News Bears* monorail expansion photographs for the base game.
 
-The other four games intentionally retain original typographic artwork until a
+The other five games intentionally retain original typographic artwork until a
 quality gameplay image with documented reuse rights is selected.

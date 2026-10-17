@@ -102,6 +102,25 @@
       "art": "cards",
       "amazonUrl": "https://link.amazon/B08fIOBLp",
       "type": "card"
+    },
+    {
+      "slug": "barenpark",
+      "name": "Bärenpark",
+      "strapline": "Awkward shapes, limited space and a surprisingly absorbing bear-park puzzle.",
+      "summary": "Build your own bear park by fitting irregular tiles into limited space, thinking ahead about which pieces each placement will let you collect.",
+      "theme": "Create a park filled with different kinds of bears, fitting habitats, enclosures and green spaces together across your park boards.",
+      "fun": "It's a really satisfying puzzle. All the pieces are irregular shapes, and you have limited space, so you have to think carefully about how to fit everything together. The symbols you cover affect which pieces you can take next, meaning every placement changes your options. I love the challenge of planning ahead, making the most of the space and working out what to prioritise. It's very replayable, and it's interesting to see how differently other people tackle the same problem. The Bad News Bears expansion adds a monorail that makes building the park even more fun.",
+      "audience": "People who enjoy spatial puzzles, planning ahead and making clever use of limited space. It's a lovely choice if you like building something as you play, and seeing the different solutions other players come up with.",
+      "tags": [
+        "2–4 players",
+        "30–45 minutes",
+        "Tile placement",
+        "Spatial puzzle",
+        "Planning ahead"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B0dU9YJQY",
+      "type": "board"
     }
   ]
 }

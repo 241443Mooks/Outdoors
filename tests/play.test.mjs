@@ -79,6 +79,22 @@ test('The Mind recommendation keeps the silence, relationships and shared focus 
   assert.equal(game.amazonUrl, 'https://link.amazon/B08fIOBLp');
 });
 
+test('Bärenpark recommendation preserves space optimisation, choices and monorail context', () => {
+  const game = data.games.find(game => game.slug === 'barenpark');
+  assert.ok(game);
+  assert.equal(game.name, 'Bärenpark');
+  assert.equal(game.type, 'board');
+  assert.equal(game.art, 'tiles');
+  assert.match(game.theme, /different kinds of bears/);
+  assert.match(game.fun, /irregular shapes/);
+  assert.match(game.fun, /limited space/);
+  assert.match(game.fun, /which pieces you can take next/);
+  assert.match(game.fun, /other people tackle the same problem/);
+  assert.match(game.fun, /Bad News Bears expansion adds a monorail/);
+  assert.ok(game.tags.includes('2–4 players'));
+  assert.equal(game.amazonUrl, 'https://link.amazon/B0dU9YJQY');
+});
+
 test('licensed photo metadata is complete, attributed and restricted to reviewed games', () => {
   const withImages = data.games.filter(game => Boolean(game.image));
   assert.deepEqual(withImages.map(game => game.slug), ['6-nimmt']);
@@ -104,7 +120,8 @@ test('Play classification is explicit, singular, and covers the expected physica
     cascadia: 'board',
     '6-nimmt': 'card',
     tenby: 'card',
-    'the-mind': 'card'
+    'the-mind': 'card',
+    barenpark: 'board'
   });
   assert.deepEqual(new Set(data.games.map(game => game.type)), new Set(['board', 'dice', 'card']));
 });
@@ -137,17 +154,21 @@ test('Play filters work by type, support direct links and leave Outside untouche
     }
   };
   vm.runInNewContext(script, sandbox);
-  assert.deepEqual(cards.map(c => c.hidden), [true,true,false,false,false]);
+  assert.deepEqual(cards.map(c => c.hidden), [true,true,false,false,false,true]);
   assert.equal(buttons[3].attributes['aria-pressed'], 'true');
   assert.equal(status.textContent, 'Showing 3 card games.');
   buttons[2].listeners.click();
-  assert.deepEqual(cards.map(c => c.hidden), [false,true,true,true,true]);
+  assert.deepEqual(cards.map(c => c.hidden), [false,true,true,true,true,true]);
   assert.equal(status.textContent, 'Showing 1 dice game.');
   assert.equal(current.searchParams.get('type'), 'dice');
+  buttons[1].listeners.click();
+  assert.deepEqual(cards.map(c => c.hidden), [true,false,true,true,true,false]);
+  assert.equal(status.textContent, 'Showing 2 board games.');
+  assert.equal(current.searchParams.get('type'), 'board');
   buttons[0].listeners.click();
   assert.ok(cards.every(c => !c.hidden));
   assert.equal(current.searchParams.has('type'), false);
-  assert.equal(status.textContent, 'Showing all 5 games.');
+  assert.equal(status.textContent, 'Showing all 6 games.');
 });
 
 test('game slugs are distinct and all recommendations include experiential copy', () => {
