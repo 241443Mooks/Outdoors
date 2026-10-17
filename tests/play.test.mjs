@@ -103,7 +103,7 @@ test('OK Play recommendation preserves the accessible tactile play and six-playe
   assert.equal(game.art, 'tiles');
   assert.match(game.theme, /Connect Four without the board/);
   assert.match(game.fun, /tactile/);
-  assert.match(game.fun, /start moving pieces around/);
+  assert.match(game.fun, /starts moving pieces around/);
   assert.match(game.fun, /With six people/);
   assert.match(game.fun, /attacking, defending/);
   assert.match(game.audience, /harder-to-find OK Play Duo/);
