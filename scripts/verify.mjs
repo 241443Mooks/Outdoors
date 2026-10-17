@@ -1,0 +1,11 @@
+import { readFile } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const home = await readFile(new URL('../dist/index.html', import.meta.url),'utf8');
+const outside = await readFile(new URL('../dist/outside/index.html', import.meta.url),'utf8');
+assert.match(home, /<h1[^>]*>Explore\. Learn\./);
+assert.match(home, /href="\/outside\/"/);
+assert.match(outside, /Showing all 16 resource cards/);
+assert.equal([...outside.matchAll(/data-card data-tags=/g)].length,16);
+assert.equal([...outside.matchAll(/class="link-list"/g)].length,16);
+assert.ok(!/\{\{[A-Z]+\}\}/.test(home + outside));
+console.log('Homepage + 16 Outside cards rendered successfully.');

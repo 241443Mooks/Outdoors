@@ -1,7 +1,7 @@
 name: Verify website
 on:
   push:
-    branches: [main]
+    branches: [main, 'feature/**']
   pull_request:
 
 jobs:
@@ -14,13 +14,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate content
-        run: npm test
-      - name: Build static website
-        run: npm run build
+      - name: Test and build static website
+        run: npm run check
       - name: Verify build output
         run: |
           test -s dist/index.html
+          test -s dist/outside/index.html
           test -s dist/styles.css
           test -s dist/script.js
           test -s dist/favicon.svg
