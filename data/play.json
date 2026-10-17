@@ -121,6 +121,26 @@
       "art": "tiles",
       "amazonUrl": "https://link.amazon/B0dU9YJQY",
       "type": "board"
+    },
+    {
+      "slug": "ok-play",
+      "name": "OK Play",
+      "strapline": "Five in a row, no board, and far more strategy than you'd expect.",
+      "summary": "A wonderfully tactile, easy-to-learn tile game that anyone can join — and one that gets much more interesting when the tiles start moving.",
+      "theme": "A bit like Connect Four without the board, except you're trying to make a line of five matching tiles. Take turns placing colourful squares next to the others; once your tiles are all in play, you can start moving them instead.",
+      "fun": "I love how accessible this game is. The tiles are so tactile, the idea takes moments to grasp, and you can play it almost anywhere with almost anyone. But it's much more strategic than it first appears. The best bit comes when everyone's used their tiles and starts moving pieces around, trying to create a line of five while stopping everyone else. With six people, using the extra colours from OK Play Duo, it gets really demanding: you're attacking, defending and trying to keep an eye on every possible win at once. Every game is different, and it's endlessly replayable.",
+      "audience": "Pretty much anyone! Especially people who enjoy quick, sociable, colourful games that are easy to learn but rewarding to think about. The standard four-player version is lovely for all sorts of groups; combining it with the harder-to-find OK Play Duo adds two more players and an extra layer of competition.",
+      "tags": [
+        "2–4 players",
+        "About 10 minutes",
+        "Tile placement",
+        "Five in a row",
+        "Accessible",
+        "Six players with Duo"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B0dyq0yOw",
+      "type": "board"
     }
   ]
 }
