@@ -16,6 +16,7 @@ grant permission to copy it or host it on smooks.co.uk.
 | The Mind | Illustration retained | [Wikimedia Commons logo](https://commons.wikimedia.org/wiki/File:Themind.png) | Only a logo with unspecified author was identified, not a licensed gameplay photo; not suitable. Seek official permission or owner's photo. |
 | Bärenpark (Bear Park) | Illustration retained | [Lookout Games product page](https://www.lookout-spiele.de/en/games/baerenpark.html) | Publisher shows product and component imagery, but no confirmed permission for reusing the photographs on an affiliate-supported site. Seek licensed tabletop photo. |
 | OK Play | Illustration retained | [Big Potato official page](https://bigpotato.com/products/ok-play) | Colourful in-play photography is available from the publisher, but no permission to reuse it on this affiliate-supported site has been established. Ask for the specific gameplay image licence. |
+| Colt Express | Illustration retained | [Ludonaute official page](https://www.ludonaute.fr/en/product/colt-express/) and [publisher's press kit](https://www.data.ludonaute.fr/Colt_Express/PRESS_RELEASE/Colt_Express_Press_KIT_EN.pdf) | The official press kit contains a game-in-play image showing the 3D train. Copyright and reuse conditions have not yet been verified for this affiliate-supported website; do not copy without permission. |
 
 ## How to add a photograph
 
@@ -35,6 +36,7 @@ grant permission to copy it or host it on smooks.co.uk.
 - **The Mind:** avoid assumptions about rights to retailer and player photographs.
 - **Bärenpark:** request a properly licensed gameplay photograph from Lookout Games, showing the irregular tiles laid out across the park boards. Do not mistake the separate *Bad News Bears* monorail expansion photographs for the base game.
 - **OK Play:** Big Potato has strong official images showing colourful tiles in play; request permission for one rather than copying from their shop. Standard game is for 2–4 players. The additional two colours come from the separately sold OK Play Duo/Duel, not an included six-player set; availability was not verified.
+- **Colt Express:** Request permission from Ludonaute to reuse one photograph of the 3D train and figures during play. The publisher's official press kit has a promising tabletop photo, but its permitted reuse must be checked for a personal game-review website with affiliate links.
 
-The other six games intentionally retain original typographic artwork until a
+The other seven games intentionally retain original typographic artwork until a
 quality gameplay image with documented reuse rights is selected.

@@ -28,5 +28,6 @@ jobs:
           test -s dist/play/the-mind/index.html
           test -s dist/play/barenpark/index.html
           test -s dist/play/ok-play/index.html
+          test -s dist/play/colt-express/index.html
           test -s dist/favicon.svg
           test -s dist/og-image.svg

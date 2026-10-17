@@ -141,6 +141,26 @@
       "art": "tiles",
       "amazonUrl": "https://link.amazon/B0dyq0yOw",
       "type": "board"
+    },
+    {
+      "slug": "colt-express",
+      "name": "Colt Express",
+      "strapline": "Plan the robbery. Watch everyone else's plans derail.",
+      "summary": "Rob a Wild West train, programming moves ahead of time and then watching everyone's competing plans play out on a wonderful 3D train.",
+      "theme": "You're a bandit trying to get away with the richest haul from a passenger train. You play action cards to plan what your outlaw will do, then move the actual bandit figures through the train as the sequence plays out.",
+      "fun": "What I love is the gap between the plan and what actually happens. First, everyone chooses a sequence of moves; then the cards are played out in order and you physically move the bandits around the train. But every other bandit has a plan of their own. You're trying to grab the best loot and stop everyone else, with some actions hidden and sometimes not having the cards you wish you could play. So carefully thought-out plans regularly go astray. The best part is watching the whole round unfold and hearing everyone explain what they thought was going to happen, what really happened, and why. It turns every robbery into a funny, shared story, and it feels different every time.",
+      "audience": "People who enjoy tactile board games, plenty of player interaction, and the fun of seeing ambitious strategies collide. Especially sociable groups who like talking through their decisions afterwards, whether their plans worked beautifully or fell apart.",
+      "tags": [
+        "2–6 players",
+        "Around 40 minutes",
+        "3D train",
+        "Programmed actions",
+        "Player interaction",
+        "Storytelling"
+      ],
+      "art": "abstract",
+      "amazonUrl": "https://link.amazon/B0f8BGhRH",
+      "type": "board"
     }
   ]
 }
