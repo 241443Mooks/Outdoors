@@ -60,6 +60,21 @@ test('Tenby recommendation preserves personal observations and distinct affiliat
   assert.equal(tenby.amazonUrl, 'https://link.amazon/B0isct9tj');
 });
 
+test('The Mind recommendation keeps the silence, relationships and shared focus central', () => {
+  const game = data.games.find(game => game.slug === 'the-mind');
+  assert.ok(game);
+  assert.equal(game.name, 'The Mind');
+  assert.match(game.theme, /ascending order/);
+  assert.match(game.fun, /tense and intense/);
+  assert.match(game.fun, /people you're really close to/);
+  assert.match(game.fun, /shared rhythm/);
+  assert.match(game.audience, /everyone is willing to give it their attention/);
+  assert.ok(game.tags.includes('2–4 players'));
+  assert.ok(game.tags.includes('Cooperative'));
+  assert.equal(game.art, 'cards');
+  assert.equal(game.amazonUrl, 'https://link.amazon/B08fIOBLp');
+});
+
 test('game slugs are distinct and all recommendations include experiential copy', () => {
   assert.equal(new Set(data.games.map(g => g.slug)).size, data.games.length);
   for (const game of data.games) {
