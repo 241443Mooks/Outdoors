@@ -23,6 +23,18 @@ test('Heckmeck recommendation preserves the original observations', () => {
   assert.match(heckmeck.fun, /[Ff]ortunes|secure/);
   assert.equal(heckmeck.amazonUrl, 'https://link.amazon/B0fw3e1Ua');
 });
+test('Cascadia recommendation prioritises building a beautiful ecosystem', () => {
+  const cascadia = data.games.find(game => game.slug === 'cascadia');
+  assert.ok(cascadia);
+  assert.match(cascadia.theme, /ecosystem/);
+  assert.match(cascadia.fun, /landscape grow/);
+  assert.match(cascadia.fun, /scoring rules change/);
+  assert.match(cascadia.fun, /several priorities/);
+  assert.equal(cascadia.art, 'tiles');
+  assert.ok(cascadia.tags.includes('1–4 players'));
+  assert.equal(cascadia.amazonUrl, 'https://link.amazon/B06tRUIJR');
+});
+
 test('game slugs are distinct and all recommendations include experiential copy', () => {
   assert.equal(new Set(data.games.map(g => g.slug)).size, data.games.length);
   for (const game of data.games) {

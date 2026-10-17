@@ -16,6 +16,24 @@
       ],
       "art": "dice",
       "amazonUrl": "https://link.amazon/B0fw3e1Ua"
+    },
+    {
+      "slug": "cascadia",
+      "name": "Cascadia",
+      "strapline": "A beautiful ecosystem to build, one tile at a time.",
+      "summary": "Build a landscape of habitats and wildlife, balancing changing animal goals with the simple pleasure of watching it grow.",
+      "theme": "Creating a thriving ecosystem of forests, wetlands, mountains, rivers and wildlife in the Pacific Northwest.",
+      "fun": "There's something lovely about watching your landscape grow, tile by tile. You're building connected habitats while collecting wildlife and trying to meet different goals for each animal. The wildlife scoring rules change between games, so you're always juggling several priorities and working out where everything fits. But it's also just a really nice game to play for the pleasure of building a beautiful landscape.",
+      "audience": "People who like nature, thoughtful puzzles, beautiful artwork and a bit of strategy. Especially if you enjoy building something of your own while balancing several different goals.",
+      "tags": [
+        "1–4 players",
+        "Around 45 minutes",
+        "Tile drafting",
+        "Habitat building",
+        "Changing goals"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B06tRUIJR"
     }
   ]
 }
