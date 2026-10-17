@@ -35,6 +35,19 @@ test('Cascadia recommendation prioritises building a beautiful ecosystem', () =>
   assert.equal(cascadia.amazonUrl, 'https://link.amazon/B06tRUIJR');
 });
 
+test('6 nimmt recommendation preserves the social judgement and changing strategy', () => {
+  const game = data.games.find(game => game.slug === '6-nimmt');
+  assert.ok(game);
+  assert.equal(game.name, '6 nimmt!');
+  assert.match(game.fun, /cards they might choose/);
+  assert.match(game.fun, /there isn't one strategy that always works/);
+  assert.match(game.fun, /terrible decisions/);
+  assert.match(game.audience, /couple of hands/);
+  assert.ok(game.tags.includes('2–10 players'));
+  assert.equal(game.art, 'cards');
+  assert.equal(game.amazonUrl, 'https://link.amazon/B05rwYzSQ');
+});
+
 test('game slugs are distinct and all recommendations include experiential copy', () => {
   assert.equal(new Set(data.games.map(g => g.slug)).size, data.games.length);
   for (const game of data.games) {

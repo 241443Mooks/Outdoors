@@ -34,6 +34,24 @@
       ],
       "art": "tiles",
       "amazonUrl": "https://link.amazon/B06tRUIJR"
+    },
+    {
+      "slug": "6-nimmt",
+      "name": "6 nimmt!",
+      "strapline": "Simple cards. Difficult decisions. Unpredictable people.",
+      "summary": "An easy-to-learn, sociable card game where anticipating what everyone else might play is half the fun.",
+      "theme": "A lively numbered-card game where everyone plays at once. Try not to place the sixth card in a row, because you'll have to collect the penalty cards.",
+      "fun": "You've really got to think about who you're playing with and what cards they might choose. What looks like a clever, safe move can suddenly leave you caught out, and there isn't one strategy that always works because it depends so much on how everyone else plays. It's especially fun with more people: the cards are simple, but the second-guessing, changing positions and occasionally terrible decisions around the table make it such a sociable game.",
+      "audience": "People who like friendly, interactive card games that are quick to learn but still reward judgement. After a couple of hands, almost anyone can get the idea, and it's a lovely game to bring out with a group.",
+      "tags": [
+        "2–10 players",
+        "Around 45 minutes",
+        "Card game",
+        "Simultaneous choices",
+        "Reading the room"
+      ],
+      "art": "cards",
+      "amazonUrl": "https://link.amazon/B05rwYzSQ"
     }
   ]
 }

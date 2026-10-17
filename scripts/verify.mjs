@@ -6,6 +6,7 @@ const outside = await readFile(new URL('../dist/outside/index.html', import.meta
 const play = await readFile(new URL('../dist/play/index.html', import.meta.url),'utf8');
 const heckmeck = await readFile(new URL('../dist/play/heckmeck/index.html', import.meta.url),'utf8');
 const cascadia = await readFile(new URL('../dist/play/cascadia/index.html', import.meta.url),'utf8');
+const sixNimmt = await readFile(new URL('../dist/play/6-nimmt/index.html', import.meta.url),'utf8');
 assert.match(home, /<h1[^>]*>Explore\. Learn\./);
 assert.match(home, /href="\/outside\/"/);
 assert.match(home, /href="\/play\/"/);
@@ -13,9 +14,10 @@ assert.match(outside, /href="\/play\/"/);
 assert.match(outside, /Showing all 16 resource cards/);
 assert.equal([...outside.matchAll(/data-card data-tags=/g)].length,16);
 assert.equal([...outside.matchAll(/class="link-list"/g)].length,16);
-assert.ok(!/\{\{[A-Z]+\}\}/.test(home + outside + play + heckmeck + cascadia));
+assert.ok(!/\{\{[A-Z]+\}\}/.test(home + outside + play + heckmeck + cascadia + sixNimmt));
 assert.match(play, /href="\/play\/heckmeck\/"/);
 assert.match(play, /href="\/play\/cascadia\/"/);
+assert.match(play, /href="\/play\/6-nimmt\/"/);
 assert.match(heckmeck, /What's fun\?/);
 assert.match(heckmeck, /https:\/\/link\.amazon\/B0fw3e1Ua/);
 assert.match(heckmeck, /As an Amazon Associate I earn from qualifying purchases/);
@@ -25,6 +27,11 @@ assert.match(cascadia, /landscape grow/);
 assert.match(cascadia, /https:\/\/link\.amazon\/B06tRUIJR/);
 assert.match(cascadia, /As an Amazon Associate I earn from qualifying purchases/);
 assert.match(cascadia, /rel="sponsored noopener noreferrer"/);
+assert.match(sixNimmt, /2–10 players/);
+assert.match(sixNimmt, /terrible decisions/);
+assert.match(sixNimmt, /https:\/\/link\.amazon\/B05rwYzSQ/);
+assert.match(sixNimmt, /As an Amazon Associate I earn from qualifying purchases/);
+assert.match(sixNimmt, /rel="sponsored noopener noreferrer"/);
 const verifyAsset = async (sourceName, stem, extension, pages) => {
   const content = await readFile(new URL('../src/' + sourceName, import.meta.url));
   const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
@@ -36,7 +43,7 @@ const verifyAsset = async (sourceName, stem, extension, pages) => {
   assert.deepEqual(await readFile(new URL('../dist' + assetPath, import.meta.url)), content,
     'The versioned asset must contain exactly the hashed source bytes');
 };
-await verifyAsset('styles.css', 'styles', 'css', [home, outside, play, heckmeck, cascadia]);
+await verifyAsset('styles.css', 'styles', 'css', [home, outside, play, heckmeck, cascadia, sixNimmt]);
 await verifyAsset('script.js', 'script', 'js', [outside]);
 const assets = await readdir(new URL('../dist/', import.meta.url));
 assert.equal(assets.filter(name => /^styles\.[a-f0-9]{12}\.css$/.test(name)).length, 1);
