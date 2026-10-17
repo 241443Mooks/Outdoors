@@ -71,3 +71,35 @@ their destination has been supplied for that specific game.
 
 The homepage uses a provisional remote landscape photograph: before a future
 visual refresh, pick a properly licensed image and host it locally.
+
+
+## Gameplay photography and rights
+
+Play prefers photos of the **game in play** over photos of boxes. Photos are
+optional. Add an \`image\` object to a game in \`data/play.json\` only when
+the right to reuse a specific photograph has been confirmed:
+
+\`\`\`json
+{
+  "url": "https://example.com/gameplay-image.jpg",
+  "alt": "What is actually shown on the table",
+  "photographer": "Photographer's chosen credit",
+  "source": "https://example.com/source-page",
+  "license": "Specific licence or permission",
+  "licenseUrl": "https://example.com/licence",
+  "changes": "Unmodified photograph; fitted without cropping"
+}
+\`\`\`
+
+The build validates that these fields exist and adds linked photographer and
+licence credits on Play cards and detailed game pages. Never substitute an
+Amazon listing photo, BoardGameGeek user image, publisher page image, or other
+third-party photo merely because it is publicly visible.
+
+The first CC-licensed image is served from Wikimedia Commons, **not hosted
+on this repository**, so page visitors make a separate request to Wikimedia.
+Keep the image fitted without cropping to preserve the permitted original
+work. If the licence needs its own share-alike notice for adaptations, document
+it explicitly before making changes.
+
+Current image sourcing decisions: \`docs/play-image-sourcing.md\`.

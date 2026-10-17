@@ -75,6 +75,25 @@ test('The Mind recommendation keeps the silence, relationships and shared focus 
   assert.equal(game.amazonUrl, 'https://link.amazon/B08fIOBLp');
 });
 
+test('licensed photo metadata is complete, attributed and restricted to reviewed games', () => {
+  const withImages = data.games.filter(game => Boolean(game.image));
+  assert.deepEqual(withImages.map(game => game.slug), ['6-nimmt']);
+  const photo = withImages[0].image;
+  assert.match(photo.alt, /numbered 6 nimmt!/);
+  assert.equal(photo.photographer, 'Muu-karhu');
+  assert.equal(photo.license, 'CC BY-SA 3.0');
+  assert.match(photo.source, /commons.wikimedia.org/);
+  assert.match(photo.changes, /without cropping/);
+  for (const game of withImages) {
+    for (const key of ['url', 'alt', 'photographer', 'source', 'license', 'licenseUrl', 'changes']) {
+      assert.ok(game.image[key]?.trim(), key + ' missing for ' + game.slug);
+    }
+    for (const key of ['url', 'source', 'licenseUrl']) {
+      assert.equal(new URL(game.image[key]).protocol, 'https:');
+    }
+  }
+});
+
 test('game slugs are distinct and all recommendations include experiential copy', () => {
   assert.equal(new Set(data.games.map(g => g.slug)).size, data.games.length);
   for (const game of data.games) {

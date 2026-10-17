@@ -51,7 +51,16 @@
         "Reading the room"
       ],
       "art": "cards",
-      "amazonUrl": "https://link.amazon/B05rwYzSQ"
+      "amazonUrl": "https://link.amazon/B05rwYzSQ",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/6_nimmt%21.jpg",
+        "alt": "Four rows of numbered 6 nimmt! cards arranged on a wooden table during play",
+        "photographer": "Muu-karhu",
+        "source": "https://commons.wikimedia.org/wiki/File:6_nimmt!.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "changes": "Unmodified photograph; fitted without cropping"
+      }
     },
     {
       "slug": "tenby",

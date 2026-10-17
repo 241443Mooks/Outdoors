@@ -64,6 +64,20 @@ for (const game of play.games) {
   }
   if (!Array.isArray(game.tags) || !game.tags.length) throw new Error('Missing tags for ' + game.slug);
   if (!Object.hasOwn(artworkByType, game.art)) throw new Error('Unknown game art treatment for ' + game.slug);
+  if (game.image) {
+    const image = game.image;
+    for (const key of ['url', 'alt', 'photographer', 'source', 'license', 'licenseUrl', 'changes']) {
+      if (typeof image[key] !== 'string' || !image[key].trim()) {
+        throw new Error('Missing image attribution ' + key + ' for ' + game.slug);
+      }
+    }
+    for (const key of ['url', 'source', 'licenseUrl']) {
+      if (new URL(image[key]).protocol !== 'https:') throw new Error('Game image URLs require HTTPS');
+    }
+    if (new URL(image.url).hostname === 'm.media-amazon.com') {
+      throw new Error('Amazon product images must use approved tooling and may not be self-hosted');
+    }
+  }
   if (game.amazonUrl) {
     const target = new URL(game.amazonUrl);
     if (target.protocol !== 'https:') throw new Error('Affiliate links require HTTPS');
@@ -73,13 +87,34 @@ const gameTags = game => game.tags.map(tag => '<span class="game-tag">' + escape
 const gameArt = game => artworkByType[game.art].map((symbol, i) =>
   '<span class="game-illustration__mark' + (i === 1 ? ' game-illustration__mark--tilt' : '') +
   '" aria-hidden="true">' + symbol + '</span>').join('');
+// Credit is intentionally outside the linked recommendation card: nested links would
+// be inaccessible and invalid. The detail page includes full source and licence links.
+const imageCredit = image => '<span>Photo: <a href="' + escapeHtml(image.source) +
+  '" rel="noopener noreferrer" target="_blank">' + escapeHtml(image.photographer) +
+  '</a> · <a href="' + escapeHtml(image.licenseUrl) +
+  '" rel="noopener noreferrer" target="_blank">' + escapeHtml(image.license) +
+  '</a> · ' + escapeHtml(image.changes) + '</span>';
+const gameCardArt = game => game.image
+  ? '<div class="play-card__art play-card__art--photo"><img src="' + escapeHtml(game.image.url) +
+    '" alt="' + escapeHtml(game.image.alt) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>'
+  : '<div class="play-card__art" aria-hidden="true">' + gameArt(game) + '</div>';
+const gameDetailArt = game => game.image
+  ? '<figure class="game-photo"><div class="game-photo__image"><img src="' +
+    escapeHtml(game.image.url) + '" alt="' + escapeHtml(game.image.alt) +
+    '" loading="eager" decoding="async" referrerpolicy="no-referrer"></div>' +
+    '<figcaption class="game-photo__credit">' + imageCredit(game.image) + '</figcaption></figure>'
+  : '<div class="game-illustration game-illustration--' + escapeHtml(game.art) +
+    '" aria-hidden="true">' + gameArt(game) + '</div>';
+
 const gameCards = play.games.map(game =>
   '<article class="play-card"><a class="play-card__link" href="/play/' + escapeHtml(game.slug) + '/">' +
-  '<div class="play-card__art" aria-hidden="true">' + gameArt(game) + '</div>' +
+  gameCardArt(game) +
   '<div class="play-card__body"><span class="play-card__label">Board game</span>' +
   '<strong class="play-card__heading">' + escapeHtml(game.name) + '</strong>' +
   '<p>' + escapeHtml(game.summary) + '</p>' +
-  '<span class="play-card__more">A closer look ↗</span></div></a></article>'
+  '<span class="play-card__more">A closer look ↗</span></div></a>' +
+  (game.image ? '<p class="play-card__credit">' + imageCredit(game.image) + '</p>' : '') +
+  '</article>'
 ).join('\n');
 const amazonLink = game => game.amazonUrl
   ? '<p class="affiliate-notice">Affiliate link. As an Amazon Associate I earn from qualifying purchases.</p>' +
@@ -137,7 +172,7 @@ for (const game of play.games) {
     FUN: escapeHtml(game.fun),
     AUDIENCE: escapeHtml(game.audience),
     BUYLINK: amazonLink(game),
-    ARTWORK: gameArt(game)
+    ARTWORK: gameDetailArt(game)
   }));
 }
 for (const asset of assets) {

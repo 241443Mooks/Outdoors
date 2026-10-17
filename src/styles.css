@@ -262,3 +262,18 @@ h1,h2,h3 { text-wrap:balance; }
   .game-illustration__mark { font-size:5rem; }
   .game-detail__aside { padding:1.3rem; }
 }
+
+
+/* Licensed gameplay photos. Original aspect ratios are preserved (no crop). */
+.play-card__art--photo { padding:.5rem; background:#e8dcc7; }
+.play-card__art--photo img { display:block; height:210px; width:100%; object-fit:contain; }
+.play-card__credit { margin:0; padding:.7rem 1.5rem 1rem; border-top:1px solid var(--line); background:var(--surface); color:var(--muted); font-size:.7rem; line-height:1.55; }
+.play-card__credit a,.game-photo__credit a { color:var(--forest); text-underline-offset:2px; }
+.game-photo { margin:0; }
+.game-photo__image { background:#e8dcc7; display:flex; justify-content:center; align-items:center; border-radius:var(--radius); padding:.75rem; }
+.game-photo__image img { display:block; max-width:100%; width:auto; height:auto; max-height:410px; object-fit:contain; }
+.game-photo__credit { padding:.7rem 0 .1rem; color:var(--muted); font-size:.77rem; line-height:1.7; }
+@media(max-width:650px) {
+  .play-card__art--photo img { height:190px; }
+  .game-photo__image img { max-height:280px; }
+}
