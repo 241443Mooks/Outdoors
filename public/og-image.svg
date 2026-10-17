@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#f4f0e8"/><rect x="52" y="48" width="1096" height="534" rx="24" fill="#e7e8dd"/><text x="104" y="144" font-size="52" font-family="Arial,sans-serif" font-weight="bold" fill="#345b4b">smooks.</text><text x="104" y="305" font-size="76" font-family="Georgia,serif" fill="#25312c">A few good places</text><text x="104" y="395" font-size="76" font-family="Georgia,serif" fill="#25312c">to start.</text><text x="104" y="494" font-size="29" font-family="Arial,sans-serif" fill="#53615a">Routes · conditions · kit · skills · food</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3f0e9"/>
+  <rect x="46" y="44" width="1108" height="542" rx="24" fill="#153c30"/>
+  <path d="M790 586 1070 170l140 250-30 166" stroke="#60816e" stroke-opacity=".45" stroke-width="2" fill="none"/>
+  <path d="M760 586 1000 180l180 290" stroke="#60816e" stroke-opacity=".26" stroke-width="2" fill="none"/>
+  <text x="104" y="168" font-size="71" fill="#faf8f3" font-family="Georgia,serif">smooks.</text>
+  <text x="104" y="339" font-size="85" fill="#faf8f3" font-family="Georgia,serif">Explore. Learn.</text>
+  <text x="104" y="431" font-size="85" fill="#faf8f3" font-family="Georgia,serif">Build. Repeat.</text>
+  <text x="104" y="520" font-size="29" fill="#d2ddd3" font-family="Arial,sans-serif">Places, resources, ideas and projects.</text>
+</svg>
