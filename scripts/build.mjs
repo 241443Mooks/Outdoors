@@ -45,6 +45,12 @@ const linkCount = data.cards.reduce((sum, card) => sum + card.links.length, 0);
 
 // Game recommendations are kept as data so that adding a game does not require
 // editing page HTML. Titles and notes are escaped before being inserted.
+const artworkByType = {
+  dice: ['⚄', '⚂', '⚅'],
+  cards: ['♠', '♥', '♣'],
+  tiles: ['◇', '▣', '◈'],
+  abstract: ['●', '◇', '◆']
+};
 const knownSlugs = new Set();
 for (const game of play.games) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(game.slug) || knownSlugs.has(game.slug)) {
@@ -57,17 +63,19 @@ for (const game of play.games) {
     }
   }
   if (!Array.isArray(game.tags) || !game.tags.length) throw new Error('Missing tags for ' + game.slug);
-  if (game.art !== 'dice') throw new Error('Unknown game art treatment for ' + game.slug);
+  if (!Object.hasOwn(artworkByType, game.art)) throw new Error('Unknown game art treatment for ' + game.slug);
   if (game.amazonUrl) {
     const target = new URL(game.amazonUrl);
     if (target.protocol !== 'https:') throw new Error('Affiliate links require HTTPS');
   }
 }
 const gameTags = game => game.tags.map(tag => '<span class="game-tag">' + escapeHtml(tag) + '</span>').join('');
-const gameArt = '<span aria-hidden="true">⚄</span><span aria-hidden="true">⚂</span><span aria-hidden="true">⚅</span>';
+const gameArt = game => artworkByType[game.art].map((symbol, i) =>
+  '<span class="game-illustration__mark' + (i === 1 ? ' game-illustration__mark--tilt' : '') +
+  '" aria-hidden="true">' + symbol + '</span>').join('');
 const gameCards = play.games.map(game =>
   '<article class="play-card"><a class="play-card__link" href="/play/' + escapeHtml(game.slug) + '/">' +
-  '<div class="play-card__art" aria-hidden="true">' + gameArt + '</div>' +
+  '<div class="play-card__art" aria-hidden="true">' + gameArt(game) + '</div>' +
   '<div class="play-card__body"><span class="play-card__label">Board game</span>' +
   '<strong class="play-card__heading">' + escapeHtml(game.name) + '</strong>' +
   '<p>' + escapeHtml(game.summary) + '</p>' +
@@ -128,7 +136,8 @@ for (const game of play.games) {
     THEME: escapeHtml(game.theme),
     FUN: escapeHtml(game.fun),
     AUDIENCE: escapeHtml(game.audience),
-    BUYLINK: amazonLink(game)
+    BUYLINK: amazonLink(game),
+    ARTWORK: gameArt(game)
   }));
 }
 for (const asset of assets) {

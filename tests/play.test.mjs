@@ -31,6 +31,7 @@ test('game slugs are distinct and all recommendations include experiential copy'
       assert.ok(game[key]?.trim(), game.slug + ' missing ' + key);
     }
     assert.ok(game.tags.length);
+    assert.ok(['dice', 'cards', 'tiles', 'abstract'].includes(game.art));
     if (game.amazonUrl) assert.equal(new URL(game.amazonUrl).protocol, 'https:');
   }
 });

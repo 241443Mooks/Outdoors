@@ -38,7 +38,7 @@ Add one entry to \`data/play.json\`. Each recommendation includes:
 - \`fun\`: the experience and interactions that make it enjoyable
 - \`audience\`: who might like it
 - \`tags\`: a few plain-language characteristics
-- \`art\`: \`dice\` for the current original decorative design
+- \`art\`: choose \`dice\`, \`cards\`, \`tiles\`, or \`abstract\` for original typographic artwork
 - \`amazonUrl\`: an **optional, game-specific** Associates link supplied by the site owner
 
 The static build automatically creates a recommendation card at \`/play/\`
