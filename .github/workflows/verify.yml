@@ -20,7 +20,5 @@ jobs:
         run: |
           test -s dist/index.html
           test -s dist/outside/index.html
-          test -s dist/styles.css
-          test -s dist/script.js
           test -s dist/favicon.svg
           test -s dist/og-image.svg

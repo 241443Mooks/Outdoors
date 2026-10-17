@@ -1,6 +1,7 @@
-import { readFile, writeFile, mkdir, cp, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fromRoot = file => path.join(root, file);
@@ -40,7 +41,18 @@ const cards = data.cards.map((card, index) =>
   '</article>').join('\n');
 
 const linkCount = data.cards.reduce((sum, card) => sum + card.links.length, 0);
+const assets = await Promise.all([
+  { input: 'styles.css', stem: 'styles', extension: 'css', token: 'CSS' },
+  { input: 'script.js', stem: 'script', extension: 'js', token: 'SCRIPT' }
+].map(async ({ input, stem, extension, token }) => {
+  const bytes = await readFile(fromRoot('src/' + input));
+  const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 12);
+  return { token, fileName: stem + '.' + hash + '.' + extension, bytes };
+}));
+const assetUrls = Object.fromEntries(assets.map(asset => [asset.token, '/' + asset.fileName]));
+
 const placeholders = {
+  ...assetUrls,
   COUNT: String(data.cards.length),
   LINKCOUNT: String(linkCount),
   FILTERS: filters,
@@ -56,11 +68,13 @@ const render = async name => {
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error('Unresolved template placeholder in ' + name);
   return html;
 };
+await rm(fromRoot('dist'), { recursive: true, force: true });
 await mkdir(fromRoot('dist/outside'), { recursive: true });
 await writeFile(fromRoot('dist/index.html'), await render('index'));
 await writeFile(fromRoot('dist/outside/index.html'), await render('outside'));
-await copyFile(fromRoot('src/styles.css'), fromRoot('dist/styles.css'));
-await copyFile(fromRoot('src/script.js'), fromRoot('dist/script.js'));
+for (const asset of assets) {
+  await writeFile(fromRoot('dist/' + asset.fileName), asset.bytes);
+}
 await cp(fromRoot('public'), fromRoot('dist'), { recursive: true });
 console.log('Built personal homepage + Outside directory (' + data.cards.length +
   ' resource cards, ' + linkCount + ' links).');
