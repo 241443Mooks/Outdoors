@@ -48,6 +48,18 @@ test('6 nimmt recommendation preserves the social judgement and changing strateg
   assert.equal(game.amazonUrl, 'https://link.amazon/B05rwYzSQ');
 });
 
+test('Tenby recommendation preserves personal observations and distinct affiliate link', () => {
+  const tenby = data.games.find(game => game.slug === 'tenby');
+  assert.ok(tenby);
+  assert.match(tenby.theme, /Welsh seaside town/);
+  assert.match(tenby.fun, /wide table/);
+  assert.match(tenby.fun, /at the mercy/);
+  assert.match(tenby.fun, /difficult to master/);
+  assert.ok(tenby.tags.includes('1–5 players'));
+  assert.equal(tenby.art, 'cards');
+  assert.equal(tenby.amazonUrl, 'https://link.amazon/B0isct9tj');
+});
+
 test('game slugs are distinct and all recommendations include experiential copy', () => {
   assert.equal(new Set(data.games.map(g => g.slug)).size, data.games.length);
   for (const game of data.games) {
