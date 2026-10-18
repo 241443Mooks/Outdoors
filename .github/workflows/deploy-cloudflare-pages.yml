@@ -1,0 +1,55 @@
+name: Deploy smooks
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: smooks-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # A manually dispatched workflow must never publish a feature branch to production.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test, build and verify static site
+        run: npm run check
+
+      - name: Verify generated pages before publishing
+        run: |
+          test -s dist/index.html
+          test -s dist/outside/index.html
+          test -s dist/play/index.html
+
+      - name: Confirm Cloudflare Actions secrets are configured
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo '::error::Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN in GitHub repository Actions secrets before deploying.'
+            exit 1
+          fi
+
+      - name: Deploy to existing Cloudflare Pages project
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=smooks --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
