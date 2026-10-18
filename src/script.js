@@ -1,5 +1,6 @@
 (() => {
   const controls = [...document.querySelectorAll('[data-filter]')];
+  if (!controls.length) return;
   const cards = [...document.querySelectorAll('[data-card]')];
   const status = document.getElementById('filter-status');
 
@@ -31,4 +32,45 @@
     button.addEventListener('click', () => selectFilter(button.dataset.filter));
   });
   selectFilter(new URLSearchParams(window.location.search).get('category') || 'All', false);
+})();
+
+ 
+// Play has its own filter controls, separate from Outside's resource categories.
+(() => {
+  const controls = [...document.querySelectorAll('[data-play-filter]')];
+  const cards = [...document.querySelectorAll('[data-play-card]')];
+  const status = document.getElementById('play-filter-status');
+  if (!controls.length || !status) return;
+
+  function selectType(type, updateUrl = true) {
+    const selected = controls.some(button => button.dataset.playFilter === type) ? type : 'all';
+    controls.forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.playFilter === selected));
+    });
+    let count = 0;
+    cards.forEach(card => {
+      const visible = selected === 'all' || card.dataset.gameType === selected;
+      card.hidden = !visible;
+      if (visible) count++;
+    });
+    const labels = {
+      board: ['board game', 'board games'],
+      dice: ['dice game', 'dice games'],
+      card: ['card game', 'card games']
+    };
+    status.textContent = selected === 'all'
+      ? 'Showing all ' + count + (count === 1 ? ' game.' : ' games.')
+      : 'Showing ' + count + ' ' + labels[selected][count === 1 ? 0 : 1] + '.';
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (selected === 'all') url.searchParams.delete('type');
+      else url.searchParams.set('type', selected);
+      window.history.replaceState(null, '', url);
+    }
+  }
+
+  controls.forEach(button => {
+    button.addEventListener('click', () => selectType(button.dataset.playFilter));
+  });
+  selectType(new URLSearchParams(window.location.search).get('type') || 'all', false);
 })();

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e9">
+  <meta name="description" content="Tabletop games worth a look: what makes them fun and who might enjoy them.">
+  <link rel="canonical" href="https://smooks.co.uk/play/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Play — smooks.">
+  <meta property="og:description" content="Tabletop games worth a look.">
+  <meta property="og:url" content="https://smooks.co.uk/play/">
+  <meta property="og:image" content="https://smooks.co.uk/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Play — smooks.</title>
+  <link rel="stylesheet" href="{{CSS}}">
+  <script defer src="{{SCRIPT}}"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to games</a>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="/" aria-label="smooks, homepage">smooks<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-nav__link" href="/">Home</a>
+        <a class="site-nav__link" href="/outside/">Outside</a>
+        <a class="site-nav__link" href="/play/" aria-current="page">Play</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <header class="page-intro page-intro--play">
+      <div class="wrap page-intro__inner">
+        <p class="eyebrow">Things worth a look</p>
+        <h1>Play.</h1>
+        <p class="page-intro__lede">Board, dice and card games worth sharing. What they're about, what's fun, and who might enjoy them.</p>
+      </div>
+    </header>
+    <section class="wrap play-directory" aria-labelledby="play-heading">
+      <div class="play-directory__heading">
+        <div>
+          <p class="eyebrow">On the table</p>
+          <h2 id="play-heading">A few good games.</h2>
+        </div>
+        <p class="play-directory__count" id="play-filter-status" role="status" aria-live="polite">{{GAMECOUNT}}</p>
+      </div>
+      <nav class="play-filters" aria-label="Filter games by type">
+        {{PLAYFILTERS}}
+      </nav>
+      <div class="play-grid">{{GAMES}}</div>
+      <p class="play-directory__note">A small collection, added to as good games turn up.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap site-footer__inner">
+    <a class="footer-wordmark" href="/">smooks.</a>
+    <p>No ratings. Just a few things worth sharing.</p>
+  </div></footer>
+</body>
+</html>

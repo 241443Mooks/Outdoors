@@ -1,50 +1,113 @@
-# smooks. — personal website and Outside collection
+# smooks.
 
-This is the source for a quiet personal home on the internet, beginning with **Outside**, a collection of useful outdoor links.
+A quiet personal website with collections of useful things.
 
-## Status
+- **Outside** — routes, conditions, navigation, skills and places to explore.
+- **Play** — board, dice and card games worth recommending, focused on the theme, what is fun and who might enjoy them.
 
-The [published outdoor directory](https://smooks.co.uk/) was originally deployed through Cloudflare Pages Direct Upload. This repository reconstructs the published content; it is **not** the original source code.
+## Status and deployment
 
-**This branch is a design proposal, not a live deployment.** A commit or pull-request merge here does not publish changes to the existing Cloudflare site.
+This repository is connected to the existing Cloudflare Pages project serving both
+[smooks.co.uk](https://smooks.co.uk/) and [www.smooks.co.uk](https://www.smooks.co.uk/).
+Merges to \`main\` deploy automatically. For new features, use a separate branch
+and review before merging.
 
-## What's here
+Cloudflare build command: \`npm run build\`; output folder: \`dist\`; Node.js 22.
 
-- A restrained personal homepage in the visual direction A + D: scenic hero, serif headline, dark forest details and understated copy.
-- One real collection at \`/outside/\`. No empty pages or dead navigation for future Projects or Notes.
-- All 16 published resource cards, 80 external resource links, 9 filters, four 'Before you go' shortcuts, original descriptions and the foraging caution.
-- Mobile and desktop layouts, keyboard focus states, filter status announcement and reduced-motion support.
-- Plain static HTML, CSS and JS with no application framework or dependencies.
+The Outside catalogue was reconstructed from an earlier direct-upload deployment.
+It preserves 16 resource cards, 80 links, nine filters and the original safety warning.
 
-## Run
+## Run locally
 
-Node 20+:
+Node.js 20+ is required. There are no third-party Node dependencies.
 
 \`\`\`sh
 npm run check
 python3 -m http.server 4321 --directory dist
 \`\`\`
 
-Preview \`http://localhost:4321/\` and \`http://localhost:4321/outside/\`.
+Preview the homepage at \`/\`, Outside at \`/outside/\`, Play at \`/play/\`
+and the first game at \`/play/heckmeck/\`.
 
-## Files
+## Adding a game to Play
 
-- \`data/resources.json\`: all Outside content and destinations; edit here.
-- \`src/index.template.html\`: personal homepage.
-- \`src/outside.template.html\`: outdoor resource directory.
-- \`src/styles.css\`: site-wide tokens, typography, homepage, directory and responsive styles.
-- \`src/script.js\`: category filtering on the directory.
-- \`scripts/build.mjs\`: produces static \`dist/\`.
-- \`tests/\`: integrity and basic site tests.
+Start with the [Play recommendation template](docs/play-recommendation-template.md).
+It records the collection's purpose, editorial voice, writing outline and
+checks for a new game. The owner only needs to share a game and what they
+like about playing it; this isn't a form they need to complete.
 
-## Visual image dependency before deployment
+Add one entry to \`data/play.json\`. Each recommendation includes:
+- \`slug\`: unique lower-case URL segment, e.g. \`heckmeck\`
+- \`name\`, \`strapline\`, and \`summary\`
+- \`type\`: one primary category, \`board\`, \`dice\`, or \`card\`; this powers Play filters and the game type label
+- \`theme\`: what it is about
+- \`fun\`: the experience and interactions that make it enjoyable
+- \`audience\`: who might like it
+- \`tags\`: a few plain-language characteristics
+- \`art\`: choose \`dice\`, \`cards\`, \`tiles\`, or \`abstract\` for original typographic artwork
+- \`amazonUrl\`: an **optional, game-specific** Associates link supplied by the site owner
 
-The draft hero uses a **provisional Unsplash image loaded from an external CDN**, to make it possible to review the visual direction without choosing a final photograph. This makes a third-party image request in browsers. **Before publishing**, choose a final photograph, confirm its licence, self-host the optimised image in \`public/\`, update the CSS URL and remove this note. The CSS also provides a solid forest-colour fallback.
+The static build automatically creates a recommendation card at \`/play/\`
+and an individual page at \`/play/<slug>/\` for each entry. Don't put a single
+game's purchase link on another game's page. The page includes a clear affiliate
+label and the Amazon Associate disclosure next to a relevant purchase link.
+Games without a purchase link remain perfectly valid.
 
-No analytics scripts or cookies are added by the project itself.
+Play offers \`All games\`, \`Board games\`, \`Dice games\`, and \`Card games\` filters. Selecting one updates the visible cards, announced result count, and optional \`?type=\` URL (e.g. \`/play/?type=dice\`). No separate category pages or extra navigation are required. Without JavaScript, all games remain visible.
 
-## Cloudflare
+Game illustrations are original typographic motifs, not copied product art.
+We can add licensed game photos later, without requiring them to add a recommendation.
 
-The current Pages project is configured for direct upload, not Git. It is unaffected by this branch. For a future new Git-connected Pages project: build \`npm run build\`, output \`dist\`; any live-domain cutover must be planned and explicitly approved. An existing Direct Upload project cannot be converted in place to Git integration.
+## Other files
 
-**Do not change Cloudflare or the live domain without explicit approval.**
+- \`data/resources.json\` — Outside content and external links.
+- \`src/*.template.html\` — the homepage, Outside and Play templates.
+- \`src/styles.css\` — global layout and the Play visual treatment.
+- \`src/script.js\` — independent resource filters (Outside) and game type filters (Play).
+- \`scripts/build.mjs\` — static generator.
+- \`scripts/verify.mjs\` and \`tests/\` — automated checks.
+
+The build generates CSS and JavaScript filenames based on content hashes,
+preventing browsers from reusing obsolete cached styles.
+
+## Privacy and external resources
+
+The site itself sets no analytics cookies. Clicking an external destination
+(including Amazon) opens that third-party site, which may have its own
+privacy practices. Affiliate links are labelled and are not inserted unless
+their destination has been supplied for that specific game.
+
+The homepage uses a provisional remote landscape photograph: before a future
+visual refresh, pick a properly licensed image and host it locally.
+
+
+## Gameplay photography and rights
+
+Play prefers photos of the **game in play** over photos of boxes. Photos are
+optional. Add an \`image\` object to a game in \`data/play.json\` only when
+the right to reuse a specific photograph has been confirmed:
+
+\`\`\`json
+{
+  "url": "https://example.com/gameplay-image.jpg",
+  "alt": "What is actually shown on the table",
+  "photographer": "Photographer's chosen credit",
+  "source": "https://example.com/source-page",
+  "license": "Specific licence or permission",
+  "licenseUrl": "https://example.com/licence",
+  "changes": "Unmodified photograph; fitted without cropping"
+}
+\`\`\`
+
+The build validates that these fields exist and adds linked photographer and
+licence credits on Play cards and detailed game pages. Never substitute an
+Amazon listing photo, BoardGameGeek user image, publisher page image, or other
+third-party photo merely because it is publicly visible.
+
+The first CC-licensed image is served from Wikimedia Commons, **not hosted
+on this repository**, so page visitors make a separate request to Wikimedia.
+Keep the image fitted without cropping to preserve the permitted original
+work. If the licence needs its own share-alike notice for adaptations, document
+it explicitly before making changes.
+
+Current image sourcing decisions: \`docs/play-image-sourcing.md\`.

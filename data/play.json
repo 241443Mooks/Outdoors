@@ -1,0 +1,166 @@
+{
+  "intro": "Tabletop games worth a look. What they're about, what makes them fun, and who might enjoy them.",
+  "games": [
+    {
+      "slug": "heckmeck",
+      "name": "Heckmeck",
+      "strapline": "Worms, dice and constantly changing fortunes.",
+      "summary": "A mischievous dice game where players steal worms and the lead can change at any moment.",
+      "theme": "Chickens competing for roasted worms.",
+      "fun": "The best bit is the interaction between players. You can steal worms from each other, take chances and turn the game around in a single move. Nobody's position feels secure for long.",
+      "audience": "People who enjoy lively, competitive games, friendly mischief and the kind of game where fortunes keep changing.",
+      "tags": [
+        "Dice",
+        "Push your luck",
+        "Player interaction"
+      ],
+      "art": "dice",
+      "amazonUrl": "https://link.amazon/B0fw3e1Ua",
+      "type": "dice"
+    },
+    {
+      "slug": "cascadia",
+      "name": "Cascadia",
+      "strapline": "A beautiful ecosystem to build, one tile at a time.",
+      "summary": "Build a landscape of habitats and wildlife, balancing changing animal goals with the simple pleasure of watching it grow.",
+      "theme": "Creating a thriving ecosystem of forests, wetlands, mountains, rivers and wildlife in the Pacific Northwest.",
+      "fun": "There's something lovely about watching your landscape grow, tile by tile. You're building connected habitats while collecting wildlife and trying to meet different goals for each animal. The wildlife scoring rules change between games, so you're always juggling several priorities and working out where everything fits. But it's also just a really nice game to play for the pleasure of building a beautiful landscape.",
+      "audience": "People who like nature, thoughtful puzzles, beautiful artwork and a bit of strategy. Especially if you enjoy building something of your own while balancing several different goals.",
+      "tags": [
+        "1–4 players",
+        "Around 45 minutes",
+        "Tile drafting",
+        "Habitat building",
+        "Changing goals"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B06tRUIJR",
+      "type": "board"
+    },
+    {
+      "slug": "6-nimmt",
+      "name": "6 nimmt!",
+      "strapline": "Simple cards. Difficult decisions. Unpredictable people.",
+      "summary": "An easy-to-learn, sociable card game where anticipating what everyone else might play is half the fun.",
+      "theme": "A lively numbered-card game where everyone plays at once. Try not to place the sixth card in a row, because you'll have to collect the penalty cards.",
+      "fun": "You've really got to think about who you're playing with and what cards they might choose. What looks like a clever, safe move can suddenly leave you caught out, and there isn't one strategy that always works because it depends so much on how everyone else plays. It's especially fun with more people: the cards are simple, but the second-guessing, changing positions and occasionally terrible decisions around the table make it such a sociable game.",
+      "audience": "People who like friendly, interactive card games that are quick to learn but still reward judgement. After a couple of hands, almost anyone can get the idea, and it's a lovely game to bring out with a group.",
+      "tags": [
+        "2–10 players",
+        "Around 45 minutes",
+        "Card game",
+        "Simultaneous choices",
+        "Reading the room"
+      ],
+      "art": "cards",
+      "amazonUrl": "https://link.amazon/B05rwYzSQ",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/6_nimmt%21.jpg",
+        "alt": "Four rows of numbered 6 nimmt! cards arranged on a wooden table during play",
+        "photographer": "Muu-karhu",
+        "source": "https://commons.wikimedia.org/wiki/File:6_nimmt!.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "changes": "Unmodified photograph; fitted without cropping"
+      },
+      "type": "card"
+    },
+    {
+      "slug": "tenby",
+      "name": "Tenby",
+      "strapline": "Beautiful little streets. Big decisions. A very wide table.",
+      "summary": "Build a colourful Welsh seaside town, balancing competing priorities and everyone else's choices as your streets grow longer and longer.",
+      "theme": "Build your own version of the Welsh seaside town of Tenby, with colourful terraces, piers and landmarks arranged into streets.",
+      "fun": "It's beautiful, and the finished streets really do look like Tenby. You'll need a wide table because they can get surprisingly long! The rules are very simple, but planning is much harder: you're at the mercy of the cards other people choose, and you've got to decide which priorities matter most. Playing with people who know what they're doing makes every decision more interesting. It's super easy to learn, but difficult to master — and lovely just to look at as your town grows.",
+      "audience": "People who enjoy beautiful games, building something as they play and balancing several strategic priorities. It's welcoming for newcomers, but gives experienced players plenty to think about.",
+      "tags": [
+        "1–5 players",
+        "30–60 minutes",
+        "Card drafting",
+        "Town building",
+        "Easy to learn"
+      ],
+      "art": "cards",
+      "amazonUrl": "https://link.amazon/B0isct9tj",
+      "type": "card"
+    },
+    {
+      "slug": "the-mind",
+      "name": "The Mind",
+      "strapline": "No talking. Just timing, trust and a surprising amount of tension.",
+      "summary": "A remarkably simple cooperative card game that turns silent concentration and shared timing into an intense, memorable experience.",
+      "theme": "Work together to play numbered cards in ascending order, without telling each other which cards you're holding. You don't take turns; you have to sense when it's right to play.",
+      "fun": "It's amazing how tense and intense such a simple game can become. You can't discuss your cards or signal what you're holding, yet everybody needs to concentrate and find a shared rhythm. Playing with people you're really close to feels completely different from playing with people you barely know. When everyone is in tune and it works, it's wonderfully satisfying — and when the timing goes wrong, that can be just as memorable.",
+      "audience": "People who enjoy cooperative challenges and unusual, sociable experiences. A really interesting game for friends, couples and small groups who want to see how well they can work together without discussing their cards. It works best when everyone is willing to give it their attention.",
+      "tags": [
+        "2–4 players",
+        "Around 15 minutes",
+        "Cooperative",
+        "Silent play",
+        "Shared timing"
+      ],
+      "art": "cards",
+      "amazonUrl": "https://link.amazon/B08fIOBLp",
+      "type": "card"
+    },
+    {
+      "slug": "barenpark",
+      "name": "Bärenpark",
+      "strapline": "Awkward shapes, limited space and a surprisingly absorbing bear-park puzzle.",
+      "summary": "Build your own bear park by fitting irregular tiles into limited space, thinking ahead about which pieces each placement will let you collect.",
+      "theme": "Create a park filled with different kinds of bears, fitting habitats, enclosures and green spaces together across your park boards.",
+      "fun": "It's a really satisfying puzzle. All the pieces are irregular shapes, and you have limited space, so you have to think carefully about how to fit everything together. The symbols you cover affect which pieces you can take next, meaning every placement changes your options. I love the challenge of planning ahead, making the most of the space and working out what to prioritise. It's very replayable, and it's interesting to see how differently other people tackle the same problem. The Bad News Bears expansion adds a monorail that makes building the park even more fun.",
+      "audience": "People who enjoy spatial puzzles, planning ahead and making clever use of limited space. It's a lovely choice if you like building something as you play, and seeing the different solutions other players come up with.",
+      "tags": [
+        "2–4 players",
+        "30–45 minutes",
+        "Tile placement",
+        "Spatial puzzle",
+        "Planning ahead"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B0dU9YJQY",
+      "type": "board"
+    },
+    {
+      "slug": "ok-play",
+      "name": "OK Play",
+      "strapline": "Five in a row, no board, and far more strategy than you'd expect.",
+      "summary": "A wonderfully tactile, easy-to-learn tile game that anyone can join — and one that gets much more interesting when the tiles start moving.",
+      "theme": "A bit like Connect Four without the board, except you're trying to make a line of five matching tiles. Take turns placing colourful squares next to the others; once your tiles are all in play, you can start moving them instead.",
+      "fun": "I love how accessible this game is. The tiles are so tactile, the idea takes moments to grasp, and you can play it almost anywhere with almost anyone. But it's much more strategic than it first appears. The best bit comes when everyone's used their tiles and starts moving pieces around, trying to create a line of five while stopping everyone else. With six people, using the extra colours from OK Play Duo, it gets really demanding: you're attacking, defending and trying to keep an eye on every possible win at once. Every game is different, and it's endlessly replayable.",
+      "audience": "Pretty much anyone! Especially people who enjoy quick, sociable, colourful games that are easy to learn but rewarding to think about. The standard four-player version is lovely for all sorts of groups; combining it with the harder-to-find OK Play Duo adds two more players and an extra layer of competition.",
+      "tags": [
+        "2–4 players",
+        "About 10 minutes",
+        "Tile placement",
+        "Five in a row",
+        "Accessible",
+        "Six players with Duo"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B0dyq0yOw",
+      "type": "board"
+    },
+    {
+      "slug": "colt-express",
+      "name": "Colt Express",
+      "strapline": "Plan the robbery. Watch everyone else's plans derail.",
+      "summary": "Rob a Wild West train, programming moves ahead of time and then watching everyone's competing plans play out on a wonderful 3D train.",
+      "theme": "You're a bandit trying to get away with the richest haul from a passenger train. You play action cards to plan what your outlaw will do, then move the actual bandit figures through the train as the sequence plays out.",
+      "fun": "What I love is the gap between the plan and what actually happens. First, everyone chooses a sequence of moves; then the cards are played out in order and you physically move the bandits around the train. But every other bandit has a plan of their own. You're trying to grab the best loot and stop everyone else, with some actions hidden and sometimes not having the cards you wish you could play. So carefully thought-out plans regularly go astray. The best part is watching the whole round unfold and hearing everyone explain what they thought was going to happen, what really happened, and why. It turns every robbery into a funny, shared story, and it feels different every time.",
+      "audience": "People who enjoy tactile board games, plenty of player interaction, and the fun of seeing ambitious strategies collide. Especially sociable groups who like talking through their decisions afterwards, whether their plans worked beautifully or fell apart.",
+      "tags": [
+        "2–6 players",
+        "Around 40 minutes",
+        "3D train",
+        "Programmed actions",
+        "Player interaction",
+        "Storytelling"
+      ],
+      "art": "abstract",
+      "amazonUrl": "https://link.amazon/B0f8BGhRH",
+      "type": "board"
+    }
+  ]
+}

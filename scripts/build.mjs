@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fromRoot = file => path.join(root, file);
 const data = JSON.parse(await readFile(fromRoot('data/resources.json'), 'utf8'));
+const play = JSON.parse(await readFile(fromRoot('data/play.json'), 'utf8'));
 const escapeHtml = value => String(value).replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
@@ -41,6 +42,99 @@ const cards = data.cards.map((card, index) =>
   '</article>').join('\n');
 
 const linkCount = data.cards.reduce((sum, card) => sum + card.links.length, 0);
+
+// Game recommendations are kept as data so that adding a game does not require
+// editing page HTML. Titles and notes are escaped before being inserted.
+const gameTypes = {
+  board: { singular: 'Board game', plural: 'Board games' },
+  dice: { singular: 'Dice game', plural: 'Dice games' },
+  card: { singular: 'Card game', plural: 'Card games' }
+};
+const artworkByType = {
+  dice: ['⚄', '⚂', '⚅'],
+  cards: ['♠', '♥', '♣'],
+  tiles: ['◇', '▣', '◈'],
+  abstract: ['●', '◇', '◆']
+};
+const knownSlugs = new Set();
+for (const game of play.games) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(game.slug) || knownSlugs.has(game.slug)) {
+    throw new Error('Invalid or repeated game slug: ' + game.slug);
+  }
+  knownSlugs.add(game.slug);
+  for (const key of ['name', 'strapline', 'summary', 'theme', 'fun', 'audience']) {
+    if (typeof game[key] !== 'string' || !game[key].trim()) {
+      throw new Error('Missing game ' + key + ' for ' + game.slug);
+    }
+  }
+  if (!Object.hasOwn(gameTypes, game.type)) throw new Error('Invalid game type for ' + game.slug);
+  if (!Array.isArray(game.tags) || !game.tags.length) throw new Error('Missing tags for ' + game.slug);
+  if (!Object.hasOwn(artworkByType, game.art)) throw new Error('Unknown game art treatment for ' + game.slug);
+  if (game.image) {
+    const image = game.image;
+    for (const key of ['url', 'alt', 'photographer', 'source', 'license', 'licenseUrl', 'changes']) {
+      if (typeof image[key] !== 'string' || !image[key].trim()) {
+        throw new Error('Missing image attribution ' + key + ' for ' + game.slug);
+      }
+    }
+    for (const key of ['url', 'source', 'licenseUrl']) {
+      if (new URL(image[key]).protocol !== 'https:') throw new Error('Game image URLs require HTTPS');
+    }
+    if (new URL(image.url).hostname === 'm.media-amazon.com') {
+      throw new Error('Amazon product images must use approved tooling and may not be self-hosted');
+    }
+  }
+  if (game.amazonUrl) {
+    const target = new URL(game.amazonUrl);
+    if (target.protocol !== 'https:') throw new Error('Affiliate links require HTTPS');
+  }
+}
+const gameTags = game => game.tags.map(tag => '<span class="game-tag">' + escapeHtml(tag) + '</span>').join('');
+const gameArt = game => artworkByType[game.art].map((symbol, i) =>
+  '<span class="game-illustration__mark' + (i === 1 ? ' game-illustration__mark--tilt' : '') +
+  '" aria-hidden="true">' + symbol + '</span>').join('');
+// Credit is intentionally outside the linked recommendation card: nested links would
+// be inaccessible and invalid. The detail page includes full source and licence links.
+const imageCredit = image => '<span>Photo: <a href="' + escapeHtml(image.source) +
+  '" rel="noopener noreferrer" target="_blank">' + escapeHtml(image.photographer) +
+  '</a> · <a href="' + escapeHtml(image.licenseUrl) +
+  '" rel="noopener noreferrer" target="_blank">' + escapeHtml(image.license) +
+  '</a> · ' + escapeHtml(image.changes) + '</span>';
+const gameCardArt = game => game.image
+  ? '<div class="play-card__art play-card__art--photo"><img src="' + escapeHtml(game.image.url) +
+    '" alt="' + escapeHtml(game.image.alt) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>'
+  : '<div class="play-card__art" aria-hidden="true">' + gameArt(game) + '</div>';
+const gameDetailArt = game => game.image
+  ? '<figure class="game-photo"><div class="game-photo__image"><img src="' +
+    escapeHtml(game.image.url) + '" alt="' + escapeHtml(game.image.alt) +
+    '" loading="eager" decoding="async" referrerpolicy="no-referrer"></div>' +
+    '<figcaption class="game-photo__credit">' + imageCredit(game.image) + '</figcaption></figure>'
+  : '<div class="game-illustration game-illustration--' + escapeHtml(game.art) +
+    '" aria-hidden="true">' + gameArt(game) + '</div>';
+
+const playFilters = [
+  { value: 'all', label: 'All games' },
+  ...Object.entries(gameTypes).map(([value, labels]) => ({ value, label: labels.plural }))
+].map(({ value, label }, index) =>
+  '<button type="button" class="play-filter__button" data-play-filter="' + escapeHtml(value) +
+  '" aria-pressed="' + (index === 0 ? 'true' : 'false') + '">' + escapeHtml(label) + '</button>'
+).join('\n');
+const gameCards = play.games.map(game =>
+  '<article class="play-card" data-play-card data-game-type="' + escapeHtml(game.type) + '"><a class="play-card__link" href="/play/' + escapeHtml(game.slug) + '/">' +
+  gameCardArt(game) +
+  '<div class="play-card__body"><span class="play-card__label">' + escapeHtml(gameTypes[game.type].singular) + '</span>' +
+  '<strong class="play-card__heading">' + escapeHtml(game.name) + '</strong>' +
+  '<p>' + escapeHtml(game.summary) + '</p>' +
+  '<span class="play-card__more">A closer look ↗</span></div></a>' +
+  (game.image ? '<p class="play-card__credit">' + imageCredit(game.image) + '</p>' : '') +
+  '</article>'
+).join('\n');
+const amazonLink = game => game.amazonUrl
+  ? '<p class="affiliate-notice">Affiliate link. As an Amazon Associate I earn from qualifying purchases.</p>' +
+    '<a class="button button--forest" href="' + escapeHtml(game.amazonUrl) +
+    '" target="_blank" rel="sponsored noopener noreferrer">View on Amazon <span aria-hidden="true">↗</span></a>'
+  : '';
+
 const assets = await Promise.all([
   { input: 'styles.css', stem: 'styles', extension: 'css', token: 'CSS' },
   { input: 'script.js', stem: 'script', extension: 'js', token: 'SCRIPT' }
@@ -58,23 +152,47 @@ const placeholders = {
   FILTERS: filters,
   BEFORE: before,
   CARDS: cards,
-  FOOTER: escapeHtml(data.footer)
+  FOOTER: escapeHtml(data.footer),
+  GAMECOUNT: String(play.games.length) + (play.games.length === 1 ? ' game' : ' games'),
+  GAMES: gameCards,
+  PLAYFILTERS: playFilters
 };
 
-const render = async name => {
+const render = async (name, pageValues = {}) => {
   const template = await readFile(fromRoot('src/' + name + '.template.html'), 'utf8');
+  const values = { ...placeholders, ...pageValues };
   const html = template.replace(/\{\{([A-Z]+)\}\}/g,
-    (token, key) => Object.hasOwn(placeholders, key) ? placeholders[key] : token);
+    (token, key) => Object.hasOwn(values, key) ? values[key] : token);
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error('Unresolved template placeholder in ' + name);
   return html;
 };
 await rm(fromRoot('dist'), { recursive: true, force: true });
 await mkdir(fromRoot('dist/outside'), { recursive: true });
+await mkdir(fromRoot('dist/play'), { recursive: true });
 await writeFile(fromRoot('dist/index.html'), await render('index'));
 await writeFile(fromRoot('dist/outside/index.html'), await render('outside'));
+await writeFile(fromRoot('dist/play/index.html'), await render('play'));
+for (const game of play.games) {
+  const folder = fromRoot('dist/play/' + game.slug);
+  await mkdir(folder, { recursive: true });
+  await writeFile(path.join(folder, 'index.html'), await render('game', {
+    NAME: escapeHtml(game.name),
+    TYPE: escapeHtml(gameTypes[game.type].singular),
+    SLUG: escapeHtml(game.slug),
+    STRAPLINE: escapeHtml(game.strapline),
+    SUMMARY: escapeHtml(game.summary),
+    TAGS: gameTags(game),
+    ART: escapeHtml(game.art),
+    THEME: escapeHtml(game.theme),
+    FUN: escapeHtml(game.fun),
+    AUDIENCE: escapeHtml(game.audience),
+    BUYLINK: amazonLink(game),
+    ARTWORK: gameDetailArt(game)
+  }));
+}
 for (const asset of assets) {
   await writeFile(fromRoot('dist/' + asset.fileName), asset.bytes);
 }
 await cp(fromRoot('public'), fromRoot('dist'), { recursive: true });
-console.log('Built personal homepage + Outside directory (' + data.cards.length +
-  ' resource cards, ' + linkCount + ' links).');
+console.log('Built homepage, Outside (' + data.cards.length + ' cards, ' + linkCount +
+  ' links) and Play (' + play.games.length + ' games).');

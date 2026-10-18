@@ -20,5 +20,14 @@ jobs:
         run: |
           test -s dist/index.html
           test -s dist/outside/index.html
+          test -s dist/play/index.html
+          test -s dist/play/heckmeck/index.html
+          test -s dist/play/cascadia/index.html
+          test -s dist/play/6-nimmt/index.html
+          test -s dist/play/tenby/index.html
+          test -s dist/play/the-mind/index.html
+          test -s dist/play/barenpark/index.html
+          test -s dist/play/ok-play/index.html
+          test -s dist/play/colt-express/index.html
           test -s dist/favicon.svg
           test -s dist/og-image.svg
