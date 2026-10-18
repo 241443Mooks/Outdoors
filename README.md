@@ -9,10 +9,13 @@ A quiet personal website with collections of useful things.
 
 This repository is connected to the existing Cloudflare Pages project serving both
 [smooks.co.uk](https://smooks.co.uk/) and [www.smooks.co.uk](https://www.smooks.co.uk/).
-Merges to \`main\` deploy automatically. For new features, use a separate branch
-and review before merging.
+GitHub checks only verify the site until the Cloudflare deployment workflow is
+configured and merged. After setup, commits merged into `main` automatically
+publish the built `dist` folder to the existing Pages project. See
+[Cloudflare deployment setup](docs/cloudflare-pages-deployment.md). Use a separate
+branch and review before merging.
 
-Cloudflare build command: \`npm run build\`; output folder: \`dist\`; Node.js 22.
+GitHub deployment build: `npm run check`; output folder: `dist`; Node.js 22.
 
 The Outside catalogue was reconstructed from an earlier direct-upload deployment.
 It preserves 16 resource cards, 80 links, nine filters and the original safety warning.
