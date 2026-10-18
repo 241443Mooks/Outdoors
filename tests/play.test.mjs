@@ -18,6 +18,19 @@ test('Play is available from the site and is not an empty section', () => {
   assert.match(gamePage, /{{AUDIENCE}}/);
   assert.ok(data.games.length >= 1);
 });
+test('Play recommendation template preserves editorial purpose and contributor workflow', async () => {
+  const guide = await readFile(new URL('../docs/play-recommendation-template.md', import.meta.url), 'utf8');
+  const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');
+  assert.match(readme, /docs\/play-recommendation-template\.md/);
+  assert.match(guide, /personal shelf of games worth sharing/);
+  assert.match(guide, /do not ask the owner to fill in a form/);
+  assert.match(guide, /Do not invent plays/);
+  for (const field of ['strapline', 'summary', 'theme', 'fun', 'audience', 'tags', 'type', 'amazonUrl', 'image']) {
+    assert.ok(guide.includes('`' + field + '`'), 'Recommendation guide missing ' + field);
+  }
+  assert.match(guide, /until the owner explicitly/);
+});
+
 test('Heckmeck recommendation preserves the original observations', () => {
   const heckmeck = data.games.find(g => g.slug === 'heckmeck');
   assert.ok(heckmeck);

@@ -31,6 +31,11 @@ and the first game at \`/play/heckmeck/\`.
 
 ## Adding a game to Play
 
+Start with the [Play recommendation template](docs/play-recommendation-template.md).
+It records the collection's purpose, editorial voice, writing outline and
+checks for a new game. The owner only needs to share a game and what they
+like about playing it; this isn't a form they need to complete.
+
 Add one entry to \`data/play.json\`. Each recommendation includes:
 - \`slug\`: unique lower-case URL segment, e.g. \`heckmeck\`
 - \`name\`, \`strapline\`, and \`summary\`
