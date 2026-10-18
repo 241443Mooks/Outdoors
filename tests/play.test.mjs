@@ -24,7 +24,7 @@ test('Play recommendation template preserves editorial purpose and contributor w
   assert.match(readme, /docs\/play-recommendation-template\.md/);
   assert.match(guide, /personal shelf of games worth sharing/);
   assert.match(guide, /do not ask the owner to fill in a form/);
-  assert.match(guide, /Do not invent plays/);
+  assert.match(guide, /Do not\s+invent plays/);
   for (const field of ['strapline', 'summary', 'theme', 'fun', 'audience', 'tags', 'type', 'amazonUrl', 'image']) {
     assert.ok(guide.includes('`' + field + '`'), 'Recommendation guide missing ' + field);
   }
