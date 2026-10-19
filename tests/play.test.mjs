@@ -169,7 +169,8 @@ test('Play classification is explicit, singular, and covers the expected physica
     'the-mind': 'card',
     barenpark: 'board',
     'ok-play': 'board',
-    'colt-express': 'board'
+    'colt-express': 'board',
+    blokus: 'board'
   });
   assert.deepEqual(new Set(data.games.map(game => game.type)), new Set(['board', 'dice', 'card']));
 });
@@ -202,21 +203,21 @@ test('Play filters work by type, support direct links and leave Outside untouche
     }
   };
   vm.runInNewContext(script, sandbox);
-  assert.deepEqual(cards.map(c => c.hidden), [true,true,false,false,false,true,true,true]);
+  assert.deepEqual(cards.map(c => c.hidden), [true,true,false,false,false,true,true,true,true]);
   assert.equal(buttons[3].attributes['aria-pressed'], 'true');
   assert.equal(status.textContent, 'Showing 3 card games.');
   buttons[2].listeners.click();
-  assert.deepEqual(cards.map(c => c.hidden), [false,true,true,true,true,true,true,true]);
+  assert.deepEqual(cards.map(c => c.hidden), [false,true,true,true,true,true,true,true,true]);
   assert.equal(status.textContent, 'Showing 1 dice game.');
   assert.equal(current.searchParams.get('type'), 'dice');
   buttons[1].listeners.click();
-  assert.deepEqual(cards.map(c => c.hidden), [true,false,true,true,true,false,false,false]);
-  assert.equal(status.textContent, 'Showing 4 board games.');
+  assert.deepEqual(cards.map(c => c.hidden), [true,false,true,true,true,false,false,false,false]);
+  assert.equal(status.textContent, 'Showing 5 board games.');
   assert.equal(current.searchParams.get('type'), 'board');
   buttons[0].listeners.click();
   assert.ok(cards.every(c => !c.hidden));
   assert.equal(current.searchParams.has('type'), false);
-  assert.equal(status.textContent, 'Showing all 8 games.');
+  assert.equal(status.textContent, 'Showing all 9 games.');
 });
 
 test('game slugs are distinct and all recommendations include experiential copy', () => {

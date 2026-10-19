@@ -161,6 +161,24 @@
       "art": "abstract",
       "amazonUrl": "https://link.amazon/B0f8BGhRH",
       "type": "board"
+    },
+    {
+      "slug": "blokus",
+      "name": "Blokus",
+      "strapline": "One simple rule. Less and less room. More and more to think about.",
+      "summary": "Fit colourful shapes onto a shared board, joining your own pieces at the corners as the available space gets tighter and tighter.",
+      "theme": "An abstract strategy game about making the most of a shared board. Start in a corner and try to place as many of your pieces as possible. Each new piece must touch another of your colour at a corner, but never along an edge.",
+      "fun": "I love how little you need to learn before you can start, and how much thinking it takes to master. First-time players often start spotting the possibilities midway through their very first game. Then the space gets tighter and tighter and tighter, and every gap matters. It's competitive, but towards the end there's something really nice about people pointing out spaces where someone else could still fit a piece. I like that mix of trying to win and helping each other see what's possible.",
+      "audience": "People who enjoy spatial puzzles and strategy without lots of rules to remember. It's easy to pick up, with plenty to think about as the board fills up, so newcomers can start finding their own ideas during their first game.",
+      "tags": [
+        "Spatial puzzle",
+        "Easy to learn",
+        "Shared board",
+        "Strategy"
+      ],
+      "art": "tiles",
+      "amazonUrl": "https://link.amazon/B03lLo8QU",
+      "type": "board"
     }
   ]
 }
