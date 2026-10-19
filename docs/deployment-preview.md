@@ -1,4 +1,13 @@
-# Review the redesigned smooks site safely
+# Historical draft preview instructions
+
+**Status, 19 October 2026:** these instructions describe the original proposed
+Git-connected preview setup, which was not verified. The merged workflow now
+attempts a production upload from GitHub Actions and does not create PR previews.
+Use [the current deployment guide](cloudflare-pages-deployment.md) and
+[issue #6](https://github.com/241443Mooks/Outdoors/issues/6) for current work.
+Do not assume a branch push creates a preview.
+
+## Original draft instructions (historical)
 
 The GitHub repository is connected to Cloudflare Pages. This document describes how to preview this **draft branch** separately from production.
 

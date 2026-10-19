@@ -1,0 +1,30 @@
+name: Website content
+description: Capture a project, past work, idea or personal collection item.
+title: "Content: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Rough notes are enough. This repository and its issues are public: include only material suitable to share publicly. Capturing an idea does not approve it for publication on the website.
+  - type: textarea
+    id: story
+    attributes:
+      label: What would you like to capture?
+      description: A project, something you improved, an idea, or something you enjoy. Any order, any length.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Useful context or public links (optional)
+      description: Your contribution, roughly when, what changed, what is still uncertain, or a safe link. No private records needed.
+  - type: checkboxes
+    id: progress
+    attributes:
+      label: Publication progress
+      options:
+        - label: Captured
+        - label: Facts checked or uncertainty made clear
+        - label: Draft PR linked below
+        - label: Owner reviewed the wording
+        - label: Published and checked on the live site; URL and commit recorded below

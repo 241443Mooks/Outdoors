@@ -1,17 +1,28 @@
 # smooks.
 
-A quiet personal website with collections of useful things.
+A quiet personal website for things made, projects, capabilities, ideas and interests.
+
+Outside and Play are the current collections. Projects, Capabilities and Notes are
+planned; they are not yet generated pages. See the [personal site plan](docs/personal-site-plan.md)
+for the sequence, capture workflow and current deployment checkpoint.
+
+To build up past work, share rough notes in conversation or use the **Website content**
+issue template. The [project entry template](docs/project-entry-template.md) helps turn
+those notes into a reviewed account without making the owner complete a questionnaire.
 
 - **Outside** — routes, conditions, navigation, skills and places to explore.
 - **Play** — board, dice and card games worth recommending, focused on the theme, what is fun and who might enjoy them.
 
 ## Status and deployment
 
-This repository is connected to the existing Cloudflare Pages project serving both
-[smooks.co.uk](https://smooks.co.uk/) and [www.smooks.co.uk](https://www.smooks.co.uk/).
-GitHub checks only verify the site until the Cloudflare deployment workflow is
-configured and merged. After setup, commits merged into `main` automatically
-publish the built `dist` folder to the existing Pages project. See
+The merged deployment workflow targets the existing Cloudflare Pages project
+`smooks`, intended to serve [smooks.co.uk](https://smooks.co.uk/) and
+[www.smooks.co.uk](https://www.smooks.co.uk/). On 18 October, the static checks passed
+but the production upload failed with Cloudflare authentication error `10000`.
+Automatic publishing remains unverified; track the fix in
+[issue #6](https://github.com/241443Mooks/Outdoors/issues/6).
+Once access is corrected, commits merged into `main` are configured to publish the
+built `dist` folder to that Pages project. See
 [Cloudflare deployment setup](docs/cloudflare-pages-deployment.md). Use a separate
 branch and review before merging.
 
