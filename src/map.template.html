@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#f3f0e9">
+<title>A map of things · smooks.</title>
+<meta name="referrer" content="strict-origin-when-cross-origin"><link rel="stylesheet" href="/vendor/leaflet-1.9.4/leaflet.css"><script defer src="/vendor/leaflet-1.9.4/leaflet.js"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{{CSS}}"><link rel="stylesheet" href="{{MAPCSS}}">
+<script src="{{MAPSCRIPT}}" type="module"></script>
+</head>
+<body class="memory-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header"><div class="wrap site-header__inner"><a class="wordmark" href="/">smooks<span aria-hidden="true">.</span></a><nav class="site-nav" aria-label="Main navigation"><a class="site-nav__link" href="/">Home</a><a class="site-nav__link" href="/outside/">Outside</a><a class="site-nav__link" href="/play/">Play</a><a class="site-nav__link" href="/map/" aria-current="page">Map</a></nav></div></header>
+<main id="main-content" class="wrap memory-main" tabindex="-1">
+<div class="memory-intro"><div><p class="eyebrow">Places &amp; pieces of a life</p><h1>A map of things.</h1><p>Things made. Places explored. Moments worth keeping.</p></div><span class="memory-draft">First sketch</span></div>
+<p class="memory-notice">Three illustrative stories to try the map. These places and stories are examples, not a record of my life.</p>
+<div class="memory-controls" hidden data-map-controls><div class="memory-filters" role="group" aria-label="Filter memories"><button type="button" data-category-filter="all" aria-pressed="true">Everything</button><button type="button" data-category-filter="work" aria-pressed="false"><span class="legend-dot category-work" aria-hidden="true"></span>Work</button><button type="button" data-category-filter="play" aria-pressed="false"><span class="legend-dot category-play" aria-hidden="true"></span>Play</button><button type="button" data-category-filter="explore" aria-pressed="false"><span class="legend-dot category-explore" aria-hidden="true"></span>Explore</button></div><div class="memory-views" role="group" aria-label="Map view"><button type="button" data-view="world" aria-pressed="true">World</button><button type="button" data-view="stories" aria-pressed="false">Show all pins</button></div></div>
+<p id="memory-count" role="status" aria-live="polite">Three example stories. Choose a pin, or browse below.</p>
+<section class="memory-map" aria-label="World map of memories" data-memory-map data-tile-url="https://tile.openstreetmap.org/{z}/{x}/{y}.png">
+<svg viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false" data-map-svg><defs><pattern id="map-grid" width="83.333" height="83.333" patternUnits="userSpaceOnUse"><path d="M 83.333 0 L 0 0 0 83.333" fill="none" stroke="currentColor" stroke-width="0.5"/></pattern></defs><rect width="1000" height="1000" fill="url(#map-grid)"/><path class="memory-land" d="{{LAND}}"/></svg>
+<div class="memory-pins" data-map-pins></div><span class="map-caption">Every pin is a starting point.</span>
+</section>
+<p class="memory-map-hint">Drag to explore. Pinch or use + / − to zoom, up to city level. Use two fingers to move the map on a phone.</p><p data-tile-status role="status" hidden>Detailed map tiles are unavailable. Pins and stories still work.</p>
+<p class="memory-map-credit">Background: <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>, public domain. Locations are approximate city centres. Nearby pins are grouped. Detailed maps load from OpenStreetMap, which receives your IP address and the area viewed. <a href="https://osmfoundation.org/wiki/Privacy_Policy">Map privacy</a>.</p>
+<noscript><p>The stories below work without JavaScript. Enable JavaScript to use pins and filters.</p></noscript>
+<div class="memory-list-heading"><h2>The stories so far</h2><p>A few pieces. Room for more.</p></div>
+<div class="memory-list" data-memory-list>{{MEMORIES}}</div><p data-memory-empty hidden>No stories in this category yet.</p>
+<p class="memory-outro">A place and a rough memory are enough to begin.</p>
+</main><footer class="site-footer"><div class="wrap site-footer__inner"><span class="footer-wordmark">smooks.</span><p>Collected along the way.</p></div></footer>
+</body></html>

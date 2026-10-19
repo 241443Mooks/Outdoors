@@ -112,3 +112,15 @@ assert.equal(assets.filter(name => /^script\.[a-f0-9]{12}\.js$/.test(name)).leng
 assert.ok(!assets.includes('styles.css'), 'Unversioned stylesheet should not be published');
 assert.ok(!assets.includes('script.js'), 'Unversioned script should not be published');
 console.log('Homepage, Outside directory, Play, affiliate disclosure and hashed assets verified.');
+
+const memoryMap = await readFile(new URL('../dist/map/index.html', import.meta.url), 'utf8');
+assert.match(memoryMap, /A map of things/);
+const memoryData = JSON.parse(await readFile(new URL('../data/memories.json', import.meta.url), 'utf8'));
+assert.equal([...memoryMap.matchAll(/data-memory data-category=/g)].length, memoryData.entries.filter(entry => entry.status !== 'draft').length);
+assert.match(memoryMap, /Illustrative example/);
+assert.match(memoryMap, /name="robots" content="noindex"/);
+assert.ok(!/\{\{[A-Z]+\}\}/.test(memoryMap));
+await verifyAsset('memory-map.css', 'memory-map', 'css', [memoryMap]);
+await verifyAsset('memory-map.js', 'memory-map', 'js', [memoryMap]);
+assert.ok((await readFile(new URL('../dist/vendor/leaflet-1.9.4/LICENSE', import.meta.url), 'utf8')).includes('Copyright'));
+console.log('Memory map, examples and versioned assets verified.');
