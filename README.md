@@ -114,3 +114,15 @@ work. If the licence needs its own share-alike notice for adaptations, document
 it explicitly before making changes.
 
 Current image sourcing decisions: \`docs/play-image-sourcing.md\`.
+
+## Memory map (first sketch)
+
+`/map/` adds a draggable, zoomable world map capped at zoom 11 (city scale),
+with Work, Play and Explore filters, grouped nearby pins and dated story popups.
+Work entries use Situation / Task / Action / Result wording. The story list works
+without JavaScript. Three clearly marked illustrative examples are included; they
+are not Sharron's personal history. Private emails are not part of the data.
+
+See [the memory map guide](docs/memory-map.md) for content fields, map sources,
+privacy, the zoom limit and acceptance checks. The map is a draft route, marked
+noindex; it is still publicly readable if deployed.

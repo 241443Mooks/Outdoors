@@ -1,0 +1,45 @@
+{
+  "entries": [
+    {
+      "id": "example-work",
+      "category": "work",
+      "title": "Making a process easier",
+      "place": "Manchester, UK",
+      "latitude": 53.4808,
+      "longitude": -2.2426,
+      "date": "Example · date to add",
+      "status": "example",
+      "summary": "A placeholder for a piece of work and the story behind it.",
+      "story": {
+        "situation": "People are repeating the same task in different ways.",
+        "task": "Find a clearer way to get it done.",
+        "action": "Map the steps with the people who use them, then try a simpler approach.",
+        "result": "Add what actually changed, and how you know."
+      }
+    },
+    {
+      "id": "example-play",
+      "category": "play",
+      "title": "Learning something together",
+      "place": "Vancouver, Canada",
+      "latitude": 49.2827,
+      "longitude": -123.1207,
+      "date": "Example · date to add",
+      "status": "example",
+      "summary": "A placeholder for a game, a group or a shared experience.",
+      "memory": "Who was there? What were you doing? What small moment do you remember? These are prompts, not a claim that this happened here."
+    },
+    {
+      "id": "example-explore",
+      "category": "explore",
+      "title": "Somewhere worth remembering",
+      "place": "Reykjavík, Iceland",
+      "latitude": 64.1466,
+      "longitude": -21.9426,
+      "date": "Example · date to add",
+      "status": "example",
+      "summary": "A placeholder for a walk, a trip or a place that stayed with you.",
+      "memory": "Start with a view, a sound or a small detail. The date and the rest of the story can come later."
+    }
+  ]
+}

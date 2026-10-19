@@ -1,3 +1,4 @@
+import { renderMemories } from './memory-map.mjs';
 import { readFile, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -6,6 +7,8 @@ import { createHash } from 'node:crypto';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fromRoot = file => path.join(root, file);
 const data = JSON.parse(await readFile(fromRoot('data/resources.json'), 'utf8'));
+const memories = JSON.parse(await readFile(fromRoot('data/memories.json'), 'utf8'));
+const land = JSON.parse(await readFile(fromRoot('data/world-land-path.json'), 'utf8'));
 const play = JSON.parse(await readFile(fromRoot('data/play.json'), 'utf8'));
 const escapeHtml = value => String(value).replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -137,7 +140,9 @@ const amazonLink = game => game.amazonUrl
 
 const assets = await Promise.all([
   { input: 'styles.css', stem: 'styles', extension: 'css', token: 'CSS' },
-  { input: 'script.js', stem: 'script', extension: 'js', token: 'SCRIPT' }
+  { input: 'script.js', stem: 'script', extension: 'js', token: 'SCRIPT' },
+  { input: 'memory-map.css', stem: 'memory-map', extension: 'css', token: 'MAPCSS' },
+  { input: 'memory-map.js', stem: 'memory-map', extension: 'js', token: 'MAPSCRIPT' }
 ].map(async ({ input, stem, extension, token }) => {
   const bytes = await readFile(fromRoot('src/' + input));
   const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 12);
@@ -155,7 +160,9 @@ const placeholders = {
   FOOTER: escapeHtml(data.footer),
   GAMECOUNT: String(play.games.length) + (play.games.length === 1 ? ' game' : ' games'),
   GAMES: gameCards,
-  PLAYFILTERS: playFilters
+  PLAYFILTERS: playFilters,
+  MEMORIES: renderMemories(memories.entries),
+  LAND: escapeHtml(land.path)
 };
 
 const render = async (name, pageValues = {}) => {
@@ -169,6 +176,8 @@ const render = async (name, pageValues = {}) => {
 await rm(fromRoot('dist'), { recursive: true, force: true });
 await mkdir(fromRoot('dist/outside'), { recursive: true });
 await mkdir(fromRoot('dist/play'), { recursive: true });
+await mkdir(fromRoot('dist/map'), { recursive: true });
+await writeFile(fromRoot('dist/map/index.html'), await render('map'));
 await writeFile(fromRoot('dist/index.html'), await render('index'));
 await writeFile(fromRoot('dist/outside/index.html'), await render('outside'));
 await writeFile(fromRoot('dist/play/index.html'), await render('play'));
