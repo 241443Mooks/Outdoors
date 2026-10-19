@@ -28,7 +28,7 @@ assert.match(play, /href="\/play\/the-mind\/"/);
 assert.match(play, /href="\/play\/barenpark\/"/);
 assert.match(play, /href="\/play\/ok-play\/"/);
 assert.match(play, /href="\/play\/colt-express\/"/);
-assert.equal([...play.matchAll(/data-play-card data-game-type=/g)].length, 8);
+assert.equal([...play.matchAll(/data-play-card data-game-type=/g)].length, 9);
 assert.match(play, /data-play-filter="board"/);
 assert.match(play, /data-play-filter="dice"/);
 assert.match(play, /data-play-filter="card"/);
@@ -112,3 +112,11 @@ assert.equal(assets.filter(name => /^script\.[a-f0-9]{12}\.js$/.test(name)).leng
 assert.ok(!assets.includes('styles.css'), 'Unversioned stylesheet should not be published');
 assert.ok(!assets.includes('script.js'), 'Unversioned script should not be published');
 console.log('Homepage, Outside directory, Play, affiliate disclosure and hashed assets verified.');
+
+const blokus = await readFile(new URL('../dist/play/blokus/index.html', import.meta.url), 'utf8');
+assert.match(play, /href="\/play\/blokus\/"/);
+assert.match(blokus, /First-time players/);
+assert.match(blokus, /pointing out spaces/);
+assert.match(blokus, /B03lLo8QU/);
+assert.match(blokus, /As an Amazon Associate I earn from qualifying purchases/);
+assert.ok(!/\{\{[A-Z]+\}\}/.test(blokus));
